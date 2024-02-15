@@ -1,0 +1,23 @@
+<% 
+if(typeof guilds != 'undefined'){ 
+if(guilds != false){
+%>
+<ul class="top-block top-players">
+	<li class="top-title">
+		<span class="top-number">#</span> <span class="top-flag"></span><span class="top-name"><%= App.lc.translate('Name').fetch() %></span> <span class="score"><%= App.lc.translate('Score').fetch() %></span>
+	</li>
+	<% for(var i=0; i<guilds.length; i++) { %>
+	<li class="top-list">
+		<span class="top-number"><%= i+1 %></span> <span class="top-flag"><img src="<%= base_url %>rankings/get_mark/<%= guilds[i].mark %>/16" style="border: 0;" /></span><span class="top-name"><a href="<%= base_url %>guild/<%= guilds[i].name_hex %>/<%= server_selected %>"><%= guilds[i].name %></a></span> <span class="score"><%= guilds[i].score %></span>
+	</li>
+	<% } %>
+</ul>
+<% 
+}
+else{
+%>
+<div class="alert alert-info"><%= App.lc.translate('No Guilds Found').fetch() %></div>
+<%
+}
+} 
+%>

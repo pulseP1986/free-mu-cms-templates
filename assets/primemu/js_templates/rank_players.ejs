@@ -1,0 +1,113 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	$('div[id^="rank_by_class"] a').each(function(){
+		$(this).on("click", function(e){
+			e.preventDefault();
+			var c_class = $(this).attr("id").split("_")[2],
+				server = $(this).attr("id").split("_").slice(3).join('_');
+			App.populateRanking('players', server, c_class);
+		});
+	});
+});	
+</script>
+<div id="rank_by_class____________" style="text-align:center;">
+	<a href="javascript:;" class="button-link" id="class_rankings_all_<%= server_selected %>"><%= App.lc.translate('All').fetch() %></a>		
+	<a href="javascript:;" class="button-link" id="class_rankings_dw_<%= server_selected %>"">DW</a>		
+	<a href="javascript:;" class="button-link" id="class_rankings_dk_<%= server_selected %>"">DK</a>		
+	<a href="javascript:;" class="button-link" id="class_rankings_fe_<%= server_selected %>"">FE</a>
+	<a href="javascript:;" class="button-link" id="class_rankings_mg_<%= server_selected %>"">MG</a>		
+	<a href="javascript:;" class="button-link" id="class_rankings_dl_<%= server_selected %>"">DL</a>		
+	<a href="javascript:;" class="button-link" id="class_rankings_su_<%= server_selected %>"">SU</a>	
+	<a href="javascript:;" class="button-link" id="class_rankings_rf_<%= server_selected %>"">RF</a>		
+	<a href="javascript:;" class="button-link" id="class_rankings_gl_<%= server_selected %>"">GL</a>		
+	<a href="javascript:;" class="button-link" id="class_rankings_rw_<%= server_selected %>"">RW</a>			
+	<a href="javascript:;" class="button-link" id="class_rankings_sl_<%= server_selected %>"">SLR</a>
+	<a href="javascript:;" class="button-link" id="class_rankings_gc_<%= server_selected %>"">GC</a>
+	<a href="javascript:;" class="button-link" id="class_rankings_wm_<%= server_selected %>"">WM</a>
+	<a href="javascript:;" class="button-link" id="class_rankings_lr_<%= server_selected %>"">LR</a>
+	<a href="javascript:;" class="button-link" id="class_rankings_ik_<%= server_selected %>"">IK</a>
+</div>
+<br />
+<br />
+<center>
+	<h2 style="text-transform: uppercase;"><%= App.lc.translate('Top Players').fetch() %></h2>
+</center>
+<% 
+if(typeof players != 'undefined'){ 
+if(players != false){
+%>
+				<div class="table-row table-scroll">
+					<table class="rankingTable">
+						<thead>
+							<tr>
+								<td><%= App.lc.translate('Place').fetch() %></td>
+								<td><%= App.lc.translate('Name').fetch() %></td>
+								<td><%= App.lc.translate('Class').fetch() %></td>
+								<td><%= App.lc.translate('Guild').fetch() %></td>
+								<td><%= App.lc.translate('LvL').fetch() %> / <%= App.lc.translate('Res').fetch() %></td>
+								<td><%= App.lc.translate('Location').fetch() %></td>
+							</tr>
+						</thead>
+						<tbody>
+						<% for(var i=0; i<players.length; i++) { %>
+							<tr>
+								<td><%= i+1 %>º <% if(config.player.display_country == 1) { %><span class="f16"><span class="flag <%= players[i].country %>"></span></span><% } %></td>
+								<td>
+									<a href="<%= base_url %>character/<%= bin2hex(players[i].name) %>/<%= server_selected %>">
+										<span><%= players[i].name %></span>
+				<% if( players[i].vip != ''){ %>
+				    <span class="hidden-xs"
+					<% if(players[i].vip == 'Vip Platinum'){ %> style="background: #00688f; color: #fff; text-shadow: 1px 1px black; padding: 2px 4px 2px 4px;line-height: 80%; font-size: 8px; border-radius: 50px; margin-top: -10px; margin-left: -20px; position: absolute;"<% } %>
+					<% if(players[i].vip == 'PvP King'){ %> style="background: #8f6800; color: #fff; text-shadow: 1px 1px black; padding: 2px 4px 2px 4px;line-height: 80%; font-size: 8px; border-radius: 50px; margin-top: -10px; margin-left: -20px; position: absolute;"<% } %>
+					<% if(players[i].vip == 'Hunter'){ %> style="background: #8f6800; color: #fff; text-shadow: 1px 1px black; padding: 2px 4px 2px 4px;line-height: 80%; font-size: 8px; border-radius: 50px; margin-top: -10px; margin-left: -20px; position: absolute;"<% } %>
+					<% if(players[i].vip == 'Battle Master'){ %> style="background: #777b7d; color: #fff; text-shadow: 1px 1px black; padding: 2px 4px 2px 4px;line-height: 80%; font-size: 8px; border-radius: 50px; margin-top: -10px; margin-left: -20px; position: absolute;"<% } %>
+					<% if(players[i].vip == 'Streamer'){ %> style="background: #624ff3; color: #fff; text-shadow: 1px 1px black; padding: 2px 4px 2px 4px;line-height: 80%; font-size: 8px; border-radius: 50px; margin-top: -10px; margin-left: -20px; position: absolute;"<% } %>
+					<% if(players[i].vip == 'Youtuber'){ %> style="background: #f34f4f; color: #fff; text-shadow: 1px 1px black; padding: 2px 4px 2px 4px;line-height: 80%; font-size: 8px; border-radius: 50px; margin-top: -10px; margin-left: -20px; position: absolute;"<% } %>
+					<% if(players[i].vip == 'Vip Diamond'){ %> style="background: #32d1ff; color: #fff; text-shadow: 1px 1px black; padding: 2px 4px 2px 4px;line-height: 80%; font-size: 8px; border-radius: 50px; margin-top: -10px; margin-left: -20px; position: absolute;"<% } %>><%= players[i].vip %></span>
+	            <% } %>
+									</a>
+								</td>
+								<td><img src="<%= base_url %>assets/default_assets/images/char_icons/<%= players[i].class_small.toLowerCase() %>.jpg" alt="" /> <%= players[i].class %> </td>
+								<td>
+									<% if(players[i].g_mark != '') { %><%= players[i].g_name %><% } %>
+								</td>
+								<td>
+									<% if(players[i].bborder_rank != '') { %>
+										<%= players[i].level+players[i].mlevel %> / <span>(<%= players[i].bborder_rank %>º)</span>
+									<% } %>
+									<% if(players[i].bborder_rank == '') { %>
+										<%= players[i].level+players[i].mlevel %> / <span>(<%= players[i].resets %>)</span>
+									<% } %>
+								</td>
+								<td><% if(!players[i].hidden){ %><%= players[i].loc %><% } else { %><%= App.lc.translate('hidden').fetch() %><% } %></td>
+							</tr>
+						<% } %>
+						</tbody>
+					</table>
+				</div>
+<% if(typeof cache_time != 'undefined'){ %>
+<div style="text-align: right;padding-top: 15px;font-size:12px;color:brown;"><%= cache_time %></div>
+<% } %>
+<% 
+}
+else{
+%>
+<div style="padding: 0 30px 0px 50px;"><div class="i_note"><%= App.lc.translate('No Players Found').fetch() %></div></div>
+<%
+}
+} 
+%>
+	<br/>
+	<h2><%= App.lc.translate('Search Character').fetch() %></h2>
+	<form method="post" action="<%= base_url %>rankings/search/<%= server_selected %>">
+		<table>
+			<tr style="background: transparent;">
+				<td style="width: 100%;">
+					<input type="text" id="name" name="name" value="" />
+				</td>
+				<td>
+					<button type="submit" class="custom_button"><%= App.lc.translate('Submit').fetch() %></button>
+				</td>
+			</tr>
+		</table>
+	</form>

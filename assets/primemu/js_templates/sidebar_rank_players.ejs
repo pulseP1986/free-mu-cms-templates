@@ -1,0 +1,50 @@
+<% 
+	if(typeof players != 'undefined'){ 
+	if(players != false){
+%>
+<div class="tableBlock-title">
+<div class="tableBlock-title_player">Player</div>
+<div class="tableBlock-title_level" style="margin-top: 7px; margin-right: 15px;">LvL&nbsp;<span style="margin-bottom: 15px; margin-top: -15px; margin-left: 33px;">[Res]</span></div>
+<div class="tableBlock-title_score">Guild</div>
+</div>
+<% for(var i=0; i<players.length; i++) { %>
+	<div class="tableBlock-content">
+	    <div class="tableBlock-conten_number"><%= i+1 %></div>
+	    <div class="tableBlock-conten_name"><img src="<%= base_url %>assets/default_assets/images/char_icons/<%= players[i].class_small.toLowerCase() %>.jpg" alt=""> <a href="<%= base_url %>character/<%= bin2hex(players[i].name) %>/<%= server_selected %>"><%= players[i].name %>
+	        <div class="tablePopup">
+	            <span class="tablePopup-title"><%= players[i].name %></span>
+	            <div class="tablePopup-ava"><img src="<%= base_url %>assets/default_assets/images/char_icons/<%= players[i].class_small.toLowerCase() %>.jpg" alt=""></div>
+	            <div class="tablePopup-block">
+	                <span><%= App.lc.translate('Class').fetch() %>:</span> <span><%= players[i].class %></span>
+	            </div>
+	            <div class="tablePopup-block">
+	                <span><%= App.lc.translate('Resets').fetch() %>:</span> <span><%= players[i].resets %></span>
+	            </div>
+	            <div class="tablePopup-block">
+	                <span><%= App.lc.translate('Level').fetch() %>:</span> <span><%= players[i].level %></span>
+	            </div>
+	            <div class="tablePopup-block">
+	                <span><%= App.lc.translate('Master Level').fetch() %>:</span> <span><%= players[i].mlevel %></span>
+	            </div>
+	            <div class="tablePopup-block">
+	                <span><%= App.lc.translate('Location').fetch() %>:</span> <span><% if(!players[i].hidden){ %><%= players[i].loc %><% } else { %><%= App.lc.translate('hidden').fetch() %><% } %></span>
+	            </div>
+	            <div class="tablePopup-block">
+	                <span><%= App.lc.translate('Guild').fetch() %>:</span> <span><% if(players[i].g_mark != '') { %><%= players[i].g_name %><% } else { %> - <% } %></span>
+	            </div>
+	        </div>
+	    </a></div>
+	    <div class="tableBlock-conten_lvl color-gray"><%= players[i].level + players[i].mlevel%>&nbsp;<sup class="color-orange" style="margin-bottom: 15px;">[<%= players[i].resets%>]</sup></div>
+	    <div class="tableBlock-conten_scr"><% if(players[i].g_mark != '') { %><img src="<%= base_url %>rankings/get_mark/<%= players[i].g_mark %>" style="border: 0; width: 20px; height: 20px; border-radius: 15%;" /><% } else { %> - <% } %></div>
+	</div>
+<% } %>
+
+<% 
+}
+else{
+%>
+<div class="i_note" style="margin-top: 30px; margin-bottom: 315px;"><%= App.lc.translate('No players have been ranked yet this season.').fetch() %></div>
+<%
+}
+} 
+%>

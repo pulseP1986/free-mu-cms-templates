@@ -1,0 +1,66 @@
+<% 
+if(typeof guilds != 'undefined'){ 
+if(guilds != false){
+%>
+<br />
+<br />
+<center>
+	<h2 style="text-transform: uppercase;"><%= App.lc.translate('Top Guilds').fetch() %></h2>
+</center>
+
+				<div class="table-row table-scroll">
+					<table class="rankingTableGuild">
+						<thead>
+							<tr>
+								<td style="border:0px solid #000!important; font-size: 12px;"><%= App.lc.translate('#').fetch() %></td>
+								<td style="border:0px solid #000!important; font-size: 12px;"><%= App.lc.translate('Mark').fetch() %></td>
+								<td style="border:0px solid #000!important; font-size: 12px;"><%= App.lc.translate('Name').fetch() %></td>
+								<td style="border:0px solid #000!important; font-size: 12px; display:none;"><%= App.lc.translate('Master').fetch() %></td>
+								<td style="border:0px solid #000!important; font-size: 12px;"><%= App.lc.translate('Members').fetch() %></td>
+								<td style="border:0px solid #000!important; font-size: 12px;"><%= App.lc.translate('Master Level').fetch() %></td>
+								</tr>
+						</thead>
+						<tbody>
+
+
+
+	<% for(var i=0; i<guilds.length; i++) { %>
+
+	<tr>
+		<td><%= i+1 %>º </td>
+		<td><img src="<%= base_url %>rankings/get_mark/<%= guilds[i].mark %>" style="border: 0; border-radius: 50%;" /></td>
+		<td><a href="<%= base_url %>guild/<%= bin2hex(guilds[i].name) %>/<%= server_selected %>"><%= guilds[i].name %></a></td>
+		<td style="display:none;"><a href="<%= base_url %>character/<%= bin2hex(guilds[i].master) %>/<%= server_selected %>"><%= guilds[i].master %></a></td>
+		<td style="border:0px solid #000!important; text-align: center;"><%= guilds[i].members %></td>
+		<td style="border:0px solid #000!important; text-align: center;"><span><%= guilds[i].mlevel %></span></td>
+	</tr>  
+	<% } %>
+						</tbody>
+					</table>
+				</div>
+<% if(typeof cache_time != 'undefined'){ %>
+<div style="text-align: right;padding-top: 15px;font-size:12px;color:brown;"><%= cache_time %></div>
+<% } %>
+<% 
+}
+else{
+%>
+<div style="padding: 0 30px 0px 50px;"><div class="i_note"><%= App.lc.translate('No Guilds Found').fetch() %></div></div>
+<%
+}
+} 
+%>
+<br/>
+	<h2><%= App.lc.translate('Search Guild').fetch() %></h2>
+	<form method="post" action="<%= base_url %>rankings/search/<%= server_selected %>">
+		<table>
+			<tr style="background: transparent;">
+				<td style="width: 100%;">
+					<input type="text" id="name" name="name" value="" />
+				</td>
+				<td>
+					<button type="submit" class="custom_button"><%= App.lc.translate('Submit').fetch() %></button>
+				</td>
+			</tr>
+		</table>
+	</form>

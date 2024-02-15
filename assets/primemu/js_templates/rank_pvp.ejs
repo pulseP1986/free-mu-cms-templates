@@ -1,0 +1,113 @@
+<% 
+if(typeof pvp != 'undefined'){ 
+if(pvp != false){
+%>
+<center>
+	<h2 class="home-block-title"><%= App.lc.translate('Top PvP').fetch() %></h2>
+</center>
+<br /><br />
+<div class="table-row row" style="padding: 10px 0px 20px 30px">
+	<div class="col-lg-1 fields">
+		<div class="fieldGroup">
+			<span style="background: url(<%= base_url %>assets/<%= tmp_dir %>/images/lowlevel.png); margin-left: -10px;"><b>Top</b></span>
+			<select name="top" style="padding-left: 8px; padding-right: 0px; width: calc(100% + 10px); margin-left: -10px;">
+				<option value="all">All</option>
+				<option value="10" selected>10</option>
+				<option value="50">50</option>
+				<option value="100">100</option>
+				<option value="200">200</option>
+			</select>
+		</div>
+	</div>
+	<style>
+	option {
+		font-size: 13px;
+	}
+	optgroup {
+		font-size: 13px;
+	}
+	</style>
+	<div class="col-lg-3 fields">
+		<div class="fieldGroup">
+			<span style="background: url(<%= base_url %>assets/<%= tmp_dir %>/images/lowlevel.png);"><b>Filter Type</b></span>
+			<select name="type">
+				<option value="all">All</option>
+				<option value="cs">Castle Siege</option>
+				<option value="tc">Throne Conquest &nbsp; &nbsp;</option>
+				<option value="aw">Arka War</option>
+			</select>
+		</div>
+	</div>
+	<div class="col-lg-4 fields">
+		<div class="fieldGroup">
+			<span style="background: url(<%= base_url %>assets/<%= tmp_dir %>/images/lowlevel.png);"><b>Month</b></span>
+			<select name="month" id="month">
+				<option value="all">All</option>
+				<option value="01">January</option>
+				<option value="02">February</option>
+				<option value="03">March</option>
+				<option value="04">April</option>
+				<option value="05">May</option>
+				<option value="06">June</option>
+				<option value="07">July</option>
+				<option value="08">August</option>
+				<option value="09">September</option>
+				<option value="10">October</option>
+				<option value="11">November</option>
+				<option value="12">December</option>
+			</select>
+		</div>
+	</div>
+	<div class="col-lg-2 fields">
+		<div class="fieldGroup">
+			<span style="background: url(<%= base_url %>assets/<%= tmp_dir %>/images/lowlevel.png);"><b>Low Level</b></span>
+			<select name="buff">
+				<option value="0" selected>Without</option>
+				<option value="1">With</option>
+			</select>
+		</div>
+	</div>
+	<div class="col-lg-2 fields">
+		<div class="space-20"></div>
+		<button class="button-buy-keys" type="submit" style="padding-bottom: 10px; margin-left: 10px; margin-top: -1px; font-size: 16px; padding-top: 10px; background: url(<%= base_url %>assets/<%= tmp_dir %>/images/pvpbutton.png); width: 66px; height: 55px;">OK</button>
+	</div>
+</div>
+<div class="table-row  table-scroll">
+	<table class="rankingTable">
+		<thead>
+		<tr>
+			<td><%= App.lc.translate('Rank').fetch() %></td>
+			<td><%= App.lc.translate('Name').fetch() %></td>
+			<td><%= App.lc.translate('Class').fetch() %></td>
+			<td><%= App.lc.translate('Guild').fetch() %></td>
+			<td style="border:0px solid #000!important; text-align: center;"><%= App.lc.translate('Kill').fetch() %></td>
+			<td style="border:0px solid #000!important; text-align: center;"><%= App.lc.translate('Death').fetch() %></td>
+			<td style="border:0px solid #000!important; text-align: center;"><%= App.lc.translate('Ratio').fetch() %></td>
+		</tr>
+		<tbody>
+		<% for(var i=0; i< pvp.length; i++) { %>
+		<tr>
+			<td class="text-center"><%= i+1 %><span class="f16"><span class="flag <%= pvp[i].country %>"></span></span></td>
+			<td><a href="<%= base_url %>character/<%= pvp[i].name_hex %>/<%= server_selected %>"><%= pvp[i].name %></a></td>
+			<td><img src="<%= base_url %>assets/default_assets/images/char_icons/<%= pvp[i].class_small.toLowerCase() %>.jpg" title="<%= pvp[i].class %>"><%= pvp[i].class %></td>
+			<td><a href="<%= base_url %>guild/<%= pvp[i].name_hex %>/<%= server_selected %>"><%= pvp[i].name %></a></td>
+			<td style="border:0px solid #000!important; text-align: center;"><%= pvp[i].kills %></td>
+			<td style="border:0px solid #000!important; text-align: center;"><%= pvp[i].deaths %></td>
+			<td style="border:0px solid #000!important; text-align: center;"><%= pvp[i].ratio %></td>
+		</tr>  
+		<% } %>
+		</tbody>
+	</table> 
+</div>
+<% if(typeof cache_time != 'undefined'){ %>
+	<div style="text-align: right;padding-top: 15px;font-size:12px;color:brown;"><%= cache_time %></div>
+<% } %>
+<% 
+}
+else{
+%>
+	<div class="alert alert-primary" role="alert"><%= App.lc.translate('No Players Found').fetch() %></div>
+<%
+}
+} 
+%>

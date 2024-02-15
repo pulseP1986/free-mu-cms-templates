@@ -1,0 +1,69 @@
+<% 
+if(typeof huntg != 'undefined'){ 
+if(huntg != false){
+%>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#hunt').on("click", function(e){
+		e.preventDefault();
+		var server = $(this).data('server');
+		App.populateRanking('hunt', server);
+	});
+	$('#huntg').on("click", function(e){
+		e.preventDefault();
+		var server = $(this).data('server');
+		App.populateRanking('huntg', server);
+	});
+});	
+</script>
+<div id="rank_by_type" style="text-align:center;">
+<div class="topTitle">
+HuntPoints Ranking
+</div>
+<div style="margin-top: -12px;">Season ends in: <small id="countdownHuntpoints"></small></div>
+<script type="text/javascript">
+	$(document).ready(function () {
+		App.castleSiegeCountDown("countdownHuntpoints", <%= endt %>, <%= t %>);
+	});
+</script>
+<a href="javascript:;" class="button-link" id="hunt" data-server="<%= server_selected %>"><%= App.lc.translate('Players').fetch() %></a>
+<a href="javascript:;" class="button-link" id="huntg" data-server="<%= server_selected %>"><%= App.lc.translate('Guilds').fetch() %></a>
+</div>
+<br /><br />
+<div class="table-row table-scroll">				
+<table class="rankingTable">
+	<thead>
+	<tr>
+		<td style="text-align:center;">#</td>
+		<td><%= App.lc.translate('Name').fetch() %></td>
+		<td><%= App.lc.translate('Master').fetch() %></td>
+		<td style="text-align:center;"><%= App.lc.translate('HuntPoints').fetch() %></td>
+		<td style="text-align:center !important;"><%= App.lc.translate('Guild Mark').fetch() %></td>
+	</tr>
+	</thead>
+	<tbody>
+	<% for(var i=0; i<huntg.length; i++) { %>
+	<tr>
+		<td style="text-align:center;"><%= i+1 %></td>
+		<td><a href="<%= base_url %>guild/<%= huntg[i].name_hex %>/<%= server_selected %>"><%= huntg[i].name %></a></td>
+		<td><a href="<%= base_url %>character/<%= huntg[i].mname_hex %>/<%= server_selected %>"><%= huntg[i].mname %></a></td>
+		<td style="text-align:center;"><%= huntg[i].point %></td>
+		<td style="text-align:center !important;"><img style="width: 22px;height: 22px;border-radius: 50%;" src="<%= base_url %>rankings/get_mark/<%= huntg[i].g_mark %>" style="border: 0;" /></td>
+	</tr>  
+	<% } %>
+	</tbody>
+</table>  
+</div>
+<% if(typeof cache_time != 'undefined'){ %>
+<div style="text-align: right;padding-top: 15px;font-size:10px;color:brown;"><%= cache_time %></div>
+<% } %>
+<% 
+}
+else{
+%>
+<div style="padding: 0 30px 0px 50px;"><div class="i_note"><%= App.lc.translate('No Guilds Found').fetch() %></div></div>
+<%
+}
+} 
+%>
+

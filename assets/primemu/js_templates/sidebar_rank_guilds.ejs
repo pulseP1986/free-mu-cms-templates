@@ -1,0 +1,46 @@
+<% 
+	if(typeof guilds != 'undefined'){ 
+	if(guilds != false){
+%>
+<div class="tableBlock-title">
+<div class="tableBlock-title_player">Guild</div>
+<div class="tableBlock-title_level" style="margin-left: -10px; margin-right: 10px;">M.Level&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+</div>
+<% for(var i=0; i<guilds.length; i++) { %>
+	<div class="tableBlock-content">
+	    <div class="tableBlock-conten_number"><%= i+1 %></div>
+	    <div class="tableBlock-conten_name">
+	        <div class="show">
+                <a href="<%= base_url %>guild/<%= bin2hex(guilds[i].name) %>/<%= server_selected %>">
+                <img src="<%= base_url %>rankings/get_mark/<%= guilds[i].mark %>/22" alt="">
+                <div style="margin-top: -21px; margin-bottom: 3px; margin-left: 35px;"><%= guilds[i].name %></div>
+                </a>
+                <div class="tablePopup" style="margin-top: 15px;"">
+                    <span class="tablePopup-title" style="text-transform: uppercase;"><%= guilds[i].name %></span>
+                    <div class="tablePopup-ava"><img src="<%= base_url %>rankings/get_mark/<%= guilds[i].mark %>/80" style="border: 1px solid rgba(255, 255, 255, 0.05);" alt=""></div>
+                    <div class="tablePopup-block">
+                        <span><%= App.lc.translate('Master').fetch() %>:</span> <span><%= guilds[i].master %></span>
+                    </div>
+                    <div class="tablePopup-block">
+                        <span><%= App.lc.translate('Master Level').fetch() %>:</span> <span><%= guilds[i].mlevel %></span>
+                    </div>
+                    <div class="tablePopup-block">
+                        <span><%= App.lc.translate('Members').fetch() %>:</span> <span>(<%= guilds[i].members %>/40)</span>
+                    </div>
+                   
+                </div>
+	        </div>
+	    </div>
+	    <div class="tableBlock-conten_lvl"><span class="color-orange"><%= guilds[i].mlevel %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+	</div>
+<% } %>
+
+<% 
+}
+else{
+%>
+<div class="i_note" style="margin-top: 30px; margin-bottom: 315px;"><%= App.lc.translate('No guilds have been ranked yet this season.').fetch() %></div>
+<%
+}
+} 
+%>

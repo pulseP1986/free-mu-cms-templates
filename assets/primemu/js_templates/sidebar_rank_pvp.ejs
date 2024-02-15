@@ -1,0 +1,69 @@
+<% 
+if(typeof pvp != 'undefined'){ 
+if(pvp != false){
+%>
+<div class="tableBlock">
+	<div class="tableBlock-title">
+		<div class="tableBlock-title_player">
+			<%= App.lc.translate('Name').fetch() %>
+		</div>
+		<div class="tableBlock-title_level">
+			<%= App.lc.translate('Kills').fetch() %>
+		</div>
+		<div class="tableBlock-title_score">
+			<%= App.lc.translate('Guild').fetch() %>
+		</div>
+	</div>
+	<% for(var i=0; i<pvp.length; i++) { %>
+	<div class="tableBlock-content">
+		<div class="tableBlock-conten_number">
+			<%= i+1 %>
+		</div>
+		<div class="tableBlock-conten_name">
+			<img src="<%= base_url %>assets/default_assets/images/char_icons/<%= pvp[i].class_small.toLowerCase() %>.jpg" title="<%= pvp[i].class %>"><a href="<%= base_url %>character/<%= pvp[i].name_hex %>/<%= server_selected %>"><%= pvp[i].name %>
+			<div class="tablePopup">
+				<span class="tablePopup-title"><%= pvp[i].name %></span>
+				<div class="tablePopup-ava"><img src="<%= base_url %>assets/default_assets/images/char_icons/<%= pvp[i].class_small.toLowerCase() %>.jpg" alt=""></div>
+				<div class="tablePopup-block">
+					<span><%= App.lc.translate('Class').fetch() %>:</span> <span><%= pvp[i].class %></span>
+				</div>
+				<div class="tablePopup-block">
+					<span><%= App.lc.translate('Level').fetch() %>:</span> <span><%= pvp[i].clevel + pvp[i].mlevel %></span>
+				</div>
+				<div class="tablePopup-block">
+					<span><%= App.lc.translate('Kills').fetch() %>:</span> <span><%= pvp[i].kills %></span>
+				</div>
+				<div class="tablePopup-block">
+					<span><%= App.lc.translate('Deaths').fetch() %>:</span> <span><%= pvp[i].deaths %></span>
+				</div>
+				<div class="tablePopup-block">
+					<span><%= App.lc.translate('Rate').fetch() %>:</span> <span><%= pvp[i].ratio %></span>
+				</div>
+				<div class="tablePopup-block">
+					<span><%= App.lc.translate('Location').fetch() %>:</span> <span><%= pvp[i].loc %></span>
+				</div>
+				<div class="tablePopup-block">
+					<span><%= App.lc.translate('Guild').fetch() %>:</span> <span style="color:#42f5dd;"><% if(pvp[i].g_name != '') { %><%= pvp[i].g_name %><% } else { %> <%= App.lc.translate('None').fetch() %> <% } %></span>
+				</div>
+			</div>
+			</a>
+		</div>
+
+		<div class="tableBlock-conten_lvl">
+			<%= pvp[i].kills %>
+		</div>
+		<div class="tableBlock-conten_scr">
+			<% if(pvp[i].g_name != '') { %><img style="border-radius: 50%;" src="<%= base_url %>rankings/get_mark/<%= pvp[i].g_mark %>/20"><% } else { %><span style="color:#42f5dd;"><%= App.lc.translate('None').fetch() %></spant> <% } %>
+		</div>
+	</div>
+	<% } %>
+</div>
+<% 
+}
+else{
+%>
+<div class="i_note"><%= App.lc.translate('No Players Found').fetch() %></div>
+<%
+}
+} 
+%>

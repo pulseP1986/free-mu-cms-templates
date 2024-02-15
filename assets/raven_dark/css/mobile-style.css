@@ -1,0 +1,90 @@
+@media (max-width: 1350px) { .menu li a { padding: 0px 20px; } }
+@media (max-width: 1200px) { .container { padding: 0px 15px; width: 100%; }
+  .langBlock { padding: 0px 15px; } }
+@media (max-width: 1100px) { .menu li a { padding: 0px 15px; }
+  .slideText { left: 20px; bottom: 20px; }
+  .slideText-title { font-size: 30px; } }
+@media (max-width: 993px) { .btn-mobile { display: block; }
+  .topPanel { height: 50px; }
+  .dmn-page-title { padding: 10px 20px 25px 20px !important }
+  .dmn-page-content { margin-top: 10px !important; padding-left: 20px !important; padding-right: 20px !important; }
+  div[id^="rankings_select_"] a{
+	  margin-bottom: 5px;
+  }
+  /*#rankings_select_DEFAULT a { margin-bottom: 5px; }*/
+  .mt-4, .my-4 { padding: 0px 20px!important; margin-top: 1.5rem!important; }
+  .sign-up { padding: 0px 12px; }
+  .topPanel-left { position: fixed; width: 320px; height: 100%; left: -320px; top: 0; background: #12171a; transition: 0.3s; z-index: 22; align-items: flex-start; align-content: flex-start; }
+  .topPanel-left.active { left: 0; }
+  body {background-position: 10% top;}
+  .new-title p {font-size: 60px;}
+  .new-title span {font-size: 48px;}
+  .newBlock {background-position: 58% top;}
+  .topPanel-left .menu { padding-top: 50px; }
+  .play-now {left: 50%; margin-left: -120px;}
+  .events {margin-top: 50px; }
+  .headerSoc {width: 100%; height: auto;}
+  .headerSoc-block {display: inline-block;width: 32%;border-bottom: none;border-right: 1px solid rgba(67, 81, 93, 0.23);text-align: center;line-height: 110px;}
+  .header-slider {padding-bottom: 0px}
+  .header-slider {width: calc(100% - 0px);}
+  .header-slider .slick-dots, .slick-next, .slick-prev {display: none !important}
+  .headerSlider, .game, .gameClient { width: 100%; }
+  .headerInfo, .logo, .online { position: relative; top: 40px; left: auto; }
+  .headerSlider { margin-bottom: 30px; }
+  .online { justify-content: center; margin-bottom: 70px; }
+  .logo { text-align: center; }
+  .sparks { display: none; }
+  .header { height: auto; }
+  .game { margin-bottom: 30px; }
+  .eventBlock { width: 100%; border-top: 1px solid #d9dcde; border-bottom: none; border-right: 1px solid #d9dcde; }
+  .eventBlock-bosses { border-bottom: 1px solid #d9dcde; }
+  .tableRank, .tableNews { width: 100%; margin-bottom: 40px; }
+  .blockMore-container { margin: 0 auto; }
+  .menu li:after { display: none; }
+  .login {zoom: 0.8}
+  .logoMini { border-right: 0px; height: auto; padding-top: 10px; }
+  .menu { height: auto; align-items: flex-start; }
+  .menu li { height: auto; display: block; width: 100%; padding: 10px 0px; }
+  .menu li a { height: auto; width: 100%; display: block; line-height: 1; font-size: 22px; padding: 15px 35px; }
+  .footerMenu .menu li { width: 33.3%; padding: 20px 10px; }
+  .header-page .online, .page .container { top: auto; }
+  .page { padding-bottom: 50px; margin-top: -140px }
+  .orderBlock { width: 50%; padding: 10px 0px; }
+  .orderBlock:last-child { justify-content: flex-start; } }
+@media (max-width: 770px) { .copyright { margin-bottom: 20px; text-align: center; }
+  .b-block, .footerBottomFlex { justify-content: center; }
+  .footerBottom-left { justify-content: center; width: 100%; margin-bottom: 20px; margin-left: 0px; }
+  .footerMenu li { width: 50%; }
+  .footerMenu li a { padding: 0px 10px !important; }
+  .copy { padding: 5px; width: 100%; }
+  .langBlock-dropdown a { background-color: rgba(0, 0, 0, 0.9); }
+  .langBlock-dropdown a:before { border-right: 20px solid rgba(0, 0, 0, 0.9); }
+  .langBlock-dropdown a:after { border-left: 20px solid rgba(0, 0, 0, 0.9); }
+  .marketInfo-right, .marketInfo-profile { justify-content: center; }
+  .marketInfo-deposit { margin: 15px; max-width: 350px; }
+  .marketInfo-cart { margin-left: 0px; }
+  .marketInfo-profile, .marketInfo-deposit { width: 100%; }
+  .marketInfo-left { width: 100%; margin-bottom: 20px; }
+  .marketInfo-left h1 { text-align: center; } }
+@media (max-width: 525px) { .b-links { padding: 10px 20px; border-right: 0px; }
+  .blockMore { bottom: -40px; }
+  .new { padding-top: 270px; text-align: center; }
+  .footerMenu .menu li { width: 50%; }
+  .onlineBlock-blue { margin-bottom: 60px; }
+  .marketInfo { padding: 35px 10px 45px 10px; }
+  .market-content { padding: 20px 10px 70px 10px; }
+  .marketInfo-deposit { margin: 15px 0px; }
+  .breadcrumbs ul li { padding: 15px; }
+  .back { display: none }
+  .market-title { font-size: 22px; } }
+@media (max-width: 460px) { .modal_div { max-width: 100%; left: 0; margin-left: 0px; }
+  .tRow { font-size: 12px; }
+  .marketInfo-deposit { width: 300px; }
+  .orderBlock { width: 100%; text-align: center; }
+  .orderBlock:last-child { justify-content: center; }
+  .t-lvl, .t-player a { font-size: 10px; }
+  .block-16 { margin: 0 auto; margin-bottom: 15px; } }
+@media (max-width: 375px) { .tabs-buttons li { margin-left: 15px; }
+  .button-green { width: 280px; background: url(../images/button-green.png) no-repeat; background-size: 280px 56px; height: 56px; line-height: 56px; } }
+@media (max-height: 750px) { .modal_div .modal_close { top: 0px; left: 50%; margin-left: -62px } }
+@media (max-height: 650px) { .forgot { bottom: 10px; } }

@@ -1,0 +1,271 @@
+@media (max-width: 1200px) {
+  .server,
+  .block-media,
+  .side-page {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .button-btn {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    z-index: 13;
+    left: 30px;
+    transition: 0.3s;
+  }
+  .button-btn span {
+    position: relative;
+    transition: 0.3s;
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.9);
+    margin: 5px 0px;
+  }
+
+  .button-btn.active {
+    left: 250px;
+  }
+  .button-btn.active span:nth-of-type(2) {
+    display: none;
+  }
+  .button-btn.active span:first-of-type {
+    transform: rotate(45deg);
+    bottom: -3.7px;
+  }
+  .button-btn.active span:last-of-type {
+    transform: rotate(-45deg);
+    top: -3.7px;
+  }
+
+  .top-panel_right {
+    margin-left: auto;
+    margin-right: 20px;
+  }
+
+  .menuContent {
+    padding-top: 100px;
+    width: 300px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -300px;
+    z-index: 12;
+    background: rgba(0, 0, 0, 0.8);
+    transition: 0.3s;
+  }
+  .menuContent.active {
+    left: 0;
+  }
+  .menu {
+    flex-direction: column;
+    display: block;
+    margin-left: 40px;
+  }
+
+  .logo {
+    left: 35px;
+  }
+
+  .server-1 {
+    width: calc(33.3% - 15px);
+  }
+
+  .fast-button {
+    flex-direction: column;
+  }
+
+  .fast-link,
+  .fast-link:hover {
+    margin-top: 30px;
+  }
+
+  .top-page {
+    flex-direction: column;
+  }
+  .widget {
+    margin-bottom: 60px;
+  }
+
+  .block-media-left {
+    width: 65.8%;
+  }
+  .block-media-right {
+    width: 31.6%;
+  }
+
+  .block-news-content {
+    padding: 0 50px;
+  }
+
+  .block-title-news:after,
+  .block-title-news:before {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .rainbow,
+  .ray,
+  .sparks,
+  .highlight-highlight {
+    display: none;
+    opacity: 0;
+  }
+
+  .server {
+    flex-direction: column;
+  }
+  .server-1 {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 30px;
+  }
+
+  .block-media-content {
+    flex-direction: column;
+  }
+  .block-media-left,
+  .block-media-right {
+    width: 100%;
+    max-width: 790px;
+  }
+
+  .video {
+    height: 400px;
+    background-size: cover !important;
+  }
+  .block-media-left {
+    margin-bottom: 18px;
+  }
+
+  .footer-top-bg {
+    height: auto;
+    padding: 90px 0 50px 0;
+  }
+  .footer-top {
+    flex-wrap: wrap;
+  }
+
+  .footer-top>div {
+    padding-left: 5%;
+    width: 50%;
+    margin-bottom: 30px;
+  }
+
+
+  .footer-bottom {
+    height: auto;
+    padding-bottom: 30px;
+  }
+  .footer-bottom-bg {
+    flex-direction: column;
+  }
+  .templstock {
+    margin: 25px 0;
+  }
+  .soc-block {
+    margin-right: 20px;
+  }
+
+  .content-news {
+    padding-bottom: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    background: url(../images/background-top.jpg) 52% top no-repeat;
+    background-color: #06080a;
+  }
+
+  .top-panel_right .button {
+    background-size: 120px;
+    height: 49px;
+    width: 120px;
+    padding-top: 18px;
+    font-size: 12px;
+  }
+
+  .logo {
+    top: 200px;
+  }
+  .logo img {
+    width: 80vw;
+    max-width: 400px;
+  }
+
+  .carousel-s .news-img,
+  .carousel-s img,
+  .carousel-s .news-img:before {
+    width: 300px;
+  }
+  .carousel-s .news-img {
+    height: 450px;
+  }
+  .carousel-s .news-info {
+    padding: 0 20px;
+  }
+
+  .footer-top-bg {
+    padding: 90px 0 15px 0;
+  }
+
+  .footer-top>div {
+    width: 100vw;
+    padding-left: 0%;
+    text-align: center;
+  }
+
+  .footer-top .footer-top-left {
+    margin-bottom: 50px;
+  }
+
+  .block-media-left,
+  .video {
+    height: 300px;
+  }
+
+  .dowload-link {
+    flex-direction: column;
+  }
+  .dowload-text {
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .form-registration {
+    padding: 0 10px;
+  }
+
+  .content-news {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  .content-news p {
+    font-size: 14px;
+  }
+
+  .block-title-news {
+    background-size: 1050px;
+  }
+  .block-title {
+    background-size: 800px;
+  }
+  .block-title-news h1,
+  .block-title h1 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 450px) {
+  .soc-block-lang-block {
+    flex-direction: column;
+  }
+  .soc-block {
+    margin: 0;
+    margin-bottom: 20px;
+  }
+}

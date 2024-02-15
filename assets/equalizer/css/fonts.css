@@ -1,0 +1,9 @@
+  @font-face {
+    font-family: Albertus-Bold;
+    src: url(../fonts/Albertus-Bold.otf);
+  }
+
+  @font-face {
+    font-family: Albertus-Medium-Regular;
+    src: url(../fonts/Albertus-Medium-Regular.ttf);
+  }

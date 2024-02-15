@@ -1,0 +1,68 @@
+﻿@font-face {
+	font-family:'Nanum Gothic';
+	font-style:normal;
+	src:url(../font/NanumGothic-Regular.eot);
+	src:url(../font/NanumGothic-Regular-1.eot) format('embedded-opentype'),
+	url(../font/NanumGothic-Regular.woff2) format('woff2'),
+	url(../font/NanumGothic-Regular.woff) format('woff'),
+	url(../font/NanumGothic-Regular.ttf) format('truetype');
+	src:local(※), url('../font/NanumGothic-Regular.woff') format('woff');
+}
+
+@font-face {
+	font-family:'Nanum Gothic Bold';
+	font-style:normal;
+	font-weight: 700;
+	src:url(../font/NanumGothic-Bold.eot);
+	src:url(../font/NanumGothic-Bold-1.eot) format('embedded-opentype'),
+	url(../font/NanumGothic-Bold.woff2) format('woff2'),
+	url(../font/NanumGothic-Bold.woff) format('woff'),
+	url(../font/NanumGothic-Bold.ttf) format('truetype');
+	src:local(※), url('../font/NanumGothic-Bold.woff') format('woff');
+}
+
+@font-face {
+	font-family:'NotoSans Regular';
+	font-style: normal;
+	src:url(../font/NotoSansKR-Regular.eot);
+	src:url(../font/NotoSansKR-Regular-1.eot) format('embedded-opentype'),
+	url(../font/NotoSansKR-Regular.woff2) format('woff2'),
+	url(../font/NotoSansKR-Regular.woff) format('woff');
+	src:local(※), url('../font/NotoSansKR-Regular.woff') format('woff');
+}
+
+@font-face {
+	font-family:'NotoSans Medium';
+	font-style: normal;
+	src:url(../font/NotoSansKR-Medium.eot);
+	src:url(../font/NotoSansKR-Medium-1.eot) format('embedded-opentype'),
+	url(../font/NotoSansKR-Medium.woff2) format('woff2'),
+	url(../font/NotoSansKR-Medium.woff) format('woff');
+	src:local(※), url('../font/NotoSansKR-Medium.woff') format('woff');
+}
+
+html{box-sizing:border-box;}
+body{-webkit-text-size-adjust:none;}
+*, *:before, *:after {box-sizing:inherit;}
+body,div,dl,dt,dd,ul,ol,img,span,menu,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,legend,input,label,button,textarea,blockquote,th,td,p,a,article,aside,hgroup,header,footer,figure,figcaption,nav,section,time,mark,canvas,video,audio,details,summary,option{margin:0; padding:0; border:none 0; outline:none 0; font-size:14px; line-height:140%; font-family:'Malgun Gothic', "맑은고딕", 'dotum', 'Segoe UI', -apple-system, system-ui, BlinkMacSystemFont, 'Roboto', 'Droid Sans', 'Helvetica Neue', 'Apple SD Gothic Neo', 'Lucida Sans Unicode', 'Lucida Grande', 'Tahoma', 'Arial', 'Dotum', sans-serif;}
+article,aside,details,hgroup,header,footer,figure,figcaption,nav,section,time,mark,canvas,video,audio,details,summary,menu{display:block;}
+a{text-decoration:none;color:inherit;}
+/* a,a:link,a:visited,a:hover,a:active{text-decoration:none;color:inherit;} */
+dl,dt,dd,ul,ol,menu,li{list-style:none;}
+table{border-collapse:collapse; border-spacing:0;}
+img,fieldset,abbr,acronym{border:0 none;outline:none 0;}
+input,select,button,label,img{vertical-align:middle;}
+input,textarea,select,button,table{font-size:inherit;font-family:inherit;line-height:inherit;border:none 0;outline:none 0;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none;}
+address,caption,cite,code,dfn,em,var,i{font-style:normal; font-weight:normal;}
+label,button{cursor:pointer;}
+caption,th{text-align:left;}
+table{border-collapse:collapse;table-layout:fixed;border-spacing: 0;}
+button{outline:none 0; border:none 0; background-color:transparent;}
+q:before,q:after{content:'';}
+input::-ms-clear,input::-ms-reveal,select::-ms-expand{display:none;}
+input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus,input:-webkit-autofill:active,textarea:-webkit-autofill,textarea:-webkit-autofill:hover,textarea:-webkit-autofill:focus,textarea:-webkit-autofill:active{transition: background-color 5000s ease-in-out 0s;}
+caption,legend,hr{display:none;}
+input,textarea{outline-style:none; resize:none;}
+.clearFix{display:inline-block;}
+.clearFix:after{content:''; display:block; clear:both; height:0; visibility:hidden;}
+* html .clearFix{height:1%;}

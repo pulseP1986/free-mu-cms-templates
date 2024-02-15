@@ -1,0 +1,33 @@
+<% 
+if(typeof players != 'undefined'){ 
+if(players != false){
+%>
+<table class="ranking__table">
+	 <thead>
+		<tr>
+		   <th>Rank</th>
+		   <th>Class</th>
+		   <th>Character</th>
+		   <th>Level</th>
+		</tr>
+	 </thead>
+	 <tbody>	
+	<% for(var i=0; i<players.length; i++) { %>
+	<tr>
+		<td><%= i+1 %></td>
+		<td><img class="char- img-circle" data-toggle="tooltip" data-placement="top" title="<%= players[i].class %>" alt="<%= players[i].class %>" src="<%= base_url %>assets/default_assets/images/char_icons/<%= players[i].class_small.toLowerCase() %>.jpg" /></td>
+		<td><a href="<%= base_url %>character/<%= players[i].name_hex %>/<%= server_selected %>"><%= players[i].name %></a></td>
+		<td><%= players[i].level %></td>
+	</tr>
+	<% } %>
+	</tbody>
+</table>
+<% 
+}
+else{
+%>
+<div class="alert alert-info  mt-5"><%= App.lc.translate('No Players Found').fetch() %></div>
+<%
+}
+} 
+%>

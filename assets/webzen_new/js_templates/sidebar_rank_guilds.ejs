@@ -1,0 +1,33 @@
+<% 
+if(typeof guilds != 'undefined'){ 
+if(guilds != false){
+%>
+<table class="ranking__table">
+	 <thead>
+		<tr>
+		   <th>Rank</th>
+		   <th>Mark</th>
+		   <th>Guild</th>
+		   <th>Score</th>
+		</tr>
+	 </thead>
+	 <tbody>
+	<% for(var i=0; i<guilds.length; i++) { %>
+	<tr>
+		<td><%= i+1 %></td>
+		<td><img class="char- img-circle" data-toggle="tooltip" data-placement="top" src="<%= base_url %>rankings/get_mark/<%= guilds[i].mark %>/16" /></td>
+		<td><a href="<%= base_url %>guild/<%= guilds[i].name_hex %>/<%= server_selected %>"><%= guilds[i].name %></a></td>
+		<td><%= guilds[i].score %></td>
+	</tr>
+	<% } %>
+	</tbody>
+</table>
+<% 
+}
+else{
+%>
+<div class="alert alert-info mt-5"><%= App.lc.translate('No Guilds Found').fetch() %></div>
+<%
+}
+} 
+%>

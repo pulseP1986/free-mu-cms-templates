@@ -1,0 +1,29 @@
+<% 
+if(typeof players != 'undefined'){ 
+if(players != false){
+%>
+<div class="topTable-tr topTable-tr-top">
+	<span class="top-number">#</span>
+	<span class="top-img"></span>
+	<span class="top-nick"><%= App.lc.translate('Name').fetch() %></span>
+	<span class="top-score"><%= App.lc.translate('LvL').fetch() %><% if(config.player.display_master_level == 1) { %><sup><%=App.lc.translate('ML').fetch() %></sup><%}%></span>
+	<% if(config.player.display_resets == 1) { %><span class="top-score"><%= App.lc.translate('Res').fetch() %><%}%><% if(config.player.display_gresets == 1) { %><sup><%= App.lc.translate('GR').fetch() %></sup></span><%}%>
+</div>
+<% for(var i=0; i<players.length; i++) { %>
+<div class="topTable-tr">
+	<span class="top-number"><span><%= i+1 %></span></span>
+	<span class="top-img"><% if(config.player.display_country == 1) { %><span class="f16"><span class="flag <%= players[i].country %>"></span></span><% } %></span>
+	<span class="top-nick"><a href="<%= base_url %>character/<%= players[i].name_hex %>/<%= server_selected %>"><%= players[i].name %></a></span>
+	<span class="top-score"><%= players[i].level %><% if(config.player.display_master_level == 1) { %><sup><%= players[i].mlevel %></sup><%}%></span>
+	<% if(config.player.display_resets == 1) { %><span class="top-score"><%= players[i].resets %><%}%><% if(config.player.display_gresets == 1) { %><sup><%= players[i].gresets %></sup></span><%}%>
+</div>
+<% } %>
+<% 
+}
+else{
+%>
+<div class="alert alert-primary" role="alert"><%= App.lc.translate('No Players Found').fetch() %></div>
+<%
+}
+} 
+%>

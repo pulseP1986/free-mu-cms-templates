@@ -1,0 +1,72 @@
+@media (max-width: 1400px) { .mediaBlock .slick-next { right: -50px; }
+  .mediaBlock .slick-prev { left: -50px; } }
+@media (max-width: 1310px) { .wrapper { padding: 0px 15px; max-width: 1300px; width: 100%; } }
+@media (max-width: 1110px) { .menu ul li { padding: 0px 15px; }
+  .newsBlock-bottom { padding: 30px 40px 100px 40px; }
+  .newsBlock-info { padding: 30px 40px; }
+  .topTable-tr { padding: 15px 20px; }
+  .topTable-tr-top { padding: 40px 20px; } }
+@media (max-width: 993px) { .topBlock-donat { width: 100%; }
+  .donat-score { width: 20%; }
+  .donat-nick { width: 60%; }
+  .topPanel { position: fixed; height: 100%; width: 320px; left: -320px; top: 0px; z-index: 80; background: white; transition: 0.3s; }
+  .topPanel.active { left: 0px; }
+  .menu { padding-top: 50px; }
+  .menu ul { flex-wrap: wrap; }
+  .menu ul li { width: 100%; padding: 10px 20px; }
+  .menu ul li a { font-size: 24px; }
+  .langBlock { position: absolute; top: 10px; left: 10px; }
+  .langBlock-drop { right: auto; left: 0px; }
+  .logo-mini { display: none; }
+  .logo-mini-mobile { position: fixed; top: 0px; right: 0px; padding: 10px; z-index: 75; display: block; }
+  .logo-mini-mobile img { height: 90px; }
+  .lk { margin-left: 0px; }
+  .topPanel-right { justify-content: center; width: 100%; }
+  .langBlock-drop ul li a { font-size: 18px; }
+  .button-btn { background-color: #fff; display: inline-flex; align-items: center; justify-content: center; align-content: center; flex-wrap: wrap; width: 60px; height: 60px; position: fixed; left: 10px; top: 10px; z-index: 99; transition: 0.3s; }
+  .button-btn span { height: 7px; width: 45px; display: block; background: #6e5263; margin: 4px 0px; transition: 0.3s; position: relative; }
+  .button-btn.active { left: 250px; }
+  .button-btn.active span:nth-child(1) { transform: rotate(45deg); top: 8px; }
+  .button-btn.active span:nth-child(2) { display: none; }
+  .button-btn.active span:nth-child(3) { transform: rotate(-45deg); bottom: 7px; }
+  .newsBlock { width: 100%; background: url(../images/bg-left.jpg) left bottom no-repeat, url(../images/bg-right.jpg) right bottom no-repeat, url(../images/bg-repeat-x.jpg) bottom repeat-x; margin-bottom: 30px; }
+  .newsBlock-img { text-align: center; }
+  .newsBlock-bottom { text-align: center; }
+  .middleBlock-top, .middleBlock-about { width: 100%; }
+  .middleBlock-top { margin-bottom: 50px; }
+  .top-number { width: 10%; }
+  .top-img { width: 15%; }
+  .top-nick { width: 55%; }
+  .logo { width: 100%; position: relative; left: 0px; top: 0px; padding-top: 50px; text-align: center; }
+  .sonline { top: 40px; }
+  .time-server { top: 80px; right: auto; left: -20px; }
+  .header-flex { display: flex; align-items: center; justify-content: center; position: relative; margin-top: -80px; margin-bottom: 50px; padding-right: 140px; }
+  .about { min-height: auto; } }
+@media (max-width: 770px) { .footerBlock-left, .footerBlock-center, .footerBlock-right { width: 100%; }
+  .footerBlock-left { order: 3; }
+  .footerBlock-center { order: 1; }
+  .footerBlock-right { order: 2; margin-bottom: 15px; }
+  .footerBlock-logo { max-width: 400px; margin: 0 auto; }
+  .socBlock { justify-content: center; padding-right: 0px; }
+  .footerBlock-info { text-align: center; }
+  .footerBlock-info ul { margin-bottom: 20px; } }
+@media (max-width: 525px) { .about { padding: 40px 30px; }
+  .logo-mini-mobile img { height: 70px; }
+  .block-content { padding: 40px 20px; }
+  .button-btn { width: 40px; height: 40px; }
+  .button-btn span { width: 30px; height: 5px; }
+  .button-btn.active span:nth-child(1) { top: 6px; } }
+@media (max-width: 420px) { .online { left: 50%; margin-left: -163px; }
+  .time-server { left: 50%; margin-left: -73px; top: 270px; }
+  .header { min-height: 810px; }
+  .logo { padding-top: 65px; }
+  .donat-number { display: none !important; }
+  .topBlock-don { padding: 15px 15px; }
+  .donat-country { width: 40px; }
+  .topTable-tr { padding: 15px 10px; }
+  .topTable-tr-top { padding: 40px 10px; }
+  .top-number { width: 12%; }
+  .top-img { width: 20%; }
+  .top-nick { width: 48%; }
+  .top-score { width: 20%; }
+  .logo-mini-mobile img { height: 60px; } }

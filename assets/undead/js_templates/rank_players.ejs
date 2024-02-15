@@ -1,0 +1,154 @@
+<% 
+if(typeof players != 'undefined'){ 
+if(players != false){
+%>
+<div class="topThree flex-s">
+	<% 
+	for(var i=0; i<3; i++) {
+		if (i in players){
+		if(['DW', 'SM', 'GM', 'SW'].includes(players[i].class_small)){
+			 var img = 'hero-small-1.png';
+		}
+		if(['DK', 'BK', 'BM', 'DrK'].includes(players[i].class_small)){
+			 var img = 'hero-small-6.png';
+		}
+		if(['FE', 'ME', 'HE', 'NE'].includes(players[i].class_small)){
+			 var img = 'hero-small-7.png';
+		}
+		if(['MG', 'DM', 'MK'].includes(players[i].class_small)){
+			 var img = 'hero-small-8.png';
+		}
+		if(['DL', 'LE', 'ER'].includes(players[i].class_small)){
+			 var img = 'hero-small-9.png';
+		}
+		if(['SU', 'BS', 'DIM', 'DS'].includes(players[i].class_small)){
+			 var img = 'hero-small-10.png';
+		}
+		if(['RF', 'FM', 'FB'].includes(players[i].class_small)){
+			 var img = 'hero-small-12.png';
+		}
+		if(['GL', 'ML', 'SL'].includes(players[i].class_small)){
+			 var img = 'hero-small-14.png';
+		}
+		if(['RW', 'RSM', 'GRM', 'RW4'].includes(players[i].class_small)){
+			 var img = 'hero-small-11.png';
+		}
+		if(['SLR', 'RSL', 'MSL', 'SLT'].includes(players[i].class_small)){
+			 var img = 'hero-small-5.png';
+		}
+		if(['GC', 'GB', 'MGB', 'HGC'].includes(players[i].class_small)){
+			 var img = 'hero-small-4.png';
+		}
+		if(['WM', 'LM', 'SHW', 'LW'].includes(players[i].class_small)){
+			 var img = 'hero-small-2.png';
+		}
+		if(['LR', 'WAM', 'AM', 'MM'].includes(players[i].class_small)){
+			 var img = 'hero-small-3.png';
+		}
+		if(['IK', 'MIK', 'IM', 'MYK'].includes(players[i].class_small)){
+			 var img = 'hero-small-13.png';
+		}
+	%>
+	<div class="topThree-block">
+		<div class="topThree-block_place place-<%= i+1 %>"></div>
+		<div class="topThree-block_class flex-c-c">
+			<div class="slider-nav-slide-block">
+				<img class="hero-small-<%= i+1 %>" src="<%= base_url %>assets/<%= tmp_dir %>/images/<%= img %>" alt="">
+			</div>
+		</div>
+		<div class="topThree-block_text">
+			<div class="topThree-block_text-t">
+				<p><a href="<%= base_url %>character/<%= players[i].name_hex %>/<%= server_selected %>"><%= players[i].name %></a></p>
+				<span><%= App.lc.translate('LvL').fetch() %>: <%= parseInt(players[i].level) + parseInt(players[i].mlevel) %></span>
+				<% if(config.player.display_resets == 1) { %>
+				<br /><span><%= App.lc.translate('Res').fetch() %>: <%= players[i].resets %> <% if(config.player.display_gresets == 1) { %><sup style="color: red;"><%= players[i].gresets %></sup><% } %></span>
+				<% } %>
+			</div>
+			
+			<div class="topThree-block_text-b">
+				<% if(config.player.display_status == 1) { %><% if(players[i].status == 1){ %><span class="online"><%= App.lc.translate('Online').fetch() %></span><% } else { %><span class="offline"><%= App.lc.translate('Offline').fetch() %></span><% } %><% } %>
+			</div>
+		</div>
+	</div>
+
+	<% 
+	} 
+	}
+	%>
+</div>
+<%
+}
+}
+%>
+<div class="row">
+	<div class="col-12"> 
+	<% 
+	if(typeof players != 'undefined'){ 
+	if(players != false){
+	%>
+	<div class="table-responsive-sm">
+	<table class="table dmn-rankings-table table-striped">
+		<thead>
+		<tr>
+			<th class="text-center">#</th>
+			<th><%= App.lc.translate('Name').fetch() %></th>
+			<th><%= App.lc.translate('Class').fetch() %></th>
+			<th class="text-center"><%= App.lc.translate('LvL').fetch() %><% if(config.player.display_master_level == 1) { %><sup style="color: red;"><%=App.lc.translate('ML').fetch() %></sup><%}%></th>
+			<% if(config.player.display_resets == 1) { %><th class="text-center"><%= App.lc.translate('Resets').fetch() %><% if(config.player.display_gresets == 1) { %><sup style="color: red;"><%= App.lc.translate('GR').fetch() %></sup><% } %></th><% } %>
+			<th><%= App.lc.translate('Location').fetch() %></th>
+		</tr>
+		</thead>
+		<tbody>
+		<% for(var i=3; i<players.length; i++) { %>
+		<tr>
+			<td class="text-center"><%= 3+pos++ %> <% if(config.player.display_country == 1) { %><span class="f16"><span class="flag <%= players[i].country %>"></span></span><% } %></td>
+			<td><a href="<%= base_url %>character/<%= players[i].name_hex %>/<%= server_selected %>"><%= players[i].name %></a> <% if(config.player.display_status == 1) { if(players[i].status == 1){ %><img src="<%= base_url %>assets/<%= tmp_dir %>/images/online.png" title="Online" /><% }else{ %><img src="<%= base_url %>assets/<%= tmp_dir %>/images/offline.png" title="Offline" /> <% }} %></td>
+			<td><%= players[i].class %></td>
+			<td class="text-center"><%= players[i].level %><% if(config.player.display_master_level == 1) { %><sup style="color: red;"><%= players[i].mlevel %></sup><% } %></td>
+			<% if(config.player.display_resets == 1) { %><td class="text-center"><%= players[i].resets %><% if(config.player.display_gresets == 1) { %><sup style="color: red;"><%= players[i].gresets %></sup><% } %></td><% } %>
+			<td><% if(!players[i].hidden){ %><%= players[i].loc %><% } else { %><%= App.lc.translate('hidden').fetch() %><% } %></td>
+		</tr>  
+		<% } %>
+		</tbody>
+	</table> 
+	</div>	
+	<% if(typeof pagination != 'undefined'){ %>
+		<div class="text-center;"><%= pagination %></div>
+	<% } %>
+	<% if(typeof cache_time != 'undefined'){ %>
+		<div class="row mb-4">
+			<div class="col-11"> 
+				<div class="float-right"><%= cache_time %></div>
+			</div>	
+		</div>
+	<% } %>
+	<% 
+	}
+	else{
+	%>
+		<div class="alert alert-primary" role="alert"><%= App.lc.translate('No Players Found').fetch() %></div>
+	<%
+	}
+	} 
+	%>
+	</div>
+</div>	
+<div class="row mb-5">
+	<div class="col-12"> 
+	<div class="mx-auto" style="width: 450px;">
+		<form method="post" action="<%= base_url %>rankings/search/<%= server_selected %>">
+		  <div class="form-row align-items-center">
+			<div class="col-auto">
+			  <label class="sr-only" for="inlineFormInput">Name</label>
+			  <input type="text" class="form-control " id="name" name="name" placeholder="<%= App.lc.translate('Character Name').fetch() %>">
+			</div>
+
+			<div class="col-auto">
+			  <button type="submit" class="btn btn-primary "><%= App.lc.translate('Submit').fetch() %></button>
+			</div>
+		  </div>
+		</form>
+	</div>
+	</div>
+</div>
+	

@@ -1,0 +1,71 @@
+<% 
+if(typeof gens != 'undefined'){ 
+if(gens != false){
+%>
+<div class="row">
+	<div class="col-12"> 
+		<div class="table-responsive-sm">
+			<table class="table text-center dmn-rankings-table">
+				<tr>
+					<td rowspan="2" width="20%" class="text-center"><img src="<%= base_url %>assets/default_assets/images/gens_1_big.png"></td>
+					<td width="30%" style="line-height: 40px;"><%= gens.info.duprian %> <%= App.lc.translate('Contribution').fetch() %></td>
+					<td width="30%" style="line-height: 40px;"><%= gens.info.vanert %> <%= App.lc.translate('Contribution').fetch() %></td>
+					<td rowspan="2" width="20%" class="text-center"><img src="<%= base_url %>assets/default_assets/images/gens_2_big.png"></td>
+				</tr>
+				<tr>
+					<td style="line-height: 40px;" class="text-center"><%= Math.round(gens.info.perc_d) %>%</td>
+					<td style="line-height: 40px;" class="text-center"><%= Math.round(100-gens.info.perc_d) %>%</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>	
+<div class="row">
+	<div class="col-12"> 
+		<div class="table-responsive-sm">
+		<table class="table dmn-rankings-table table-striped">
+			<thead>
+			<tr>
+				<th class="text-center">#</th>
+				<th><%= App.lc.translate('Name').fetch() %></th>
+				<th class="text-center"><%= App.lc.translate('Contribution').fetch() %></th>
+				<th class="text-center"><%= App.lc.translate('Gens Family').fetch() %></th>
+				<th><%= App.lc.translate('Rank').fetch() %></th>
+			</tr>
+			</thead>
+			<tbody>
+			
+			<% 
+				delete gens['info']; 
+				var arr = $.map(gens, function(el) { return el; });
+				for(var i=0; i<arr.length; i++) { 
+			%>
+			<tr>
+				<td class="text-center"><%= i+1 %></td>
+				<td><a href="<%= base_url %>character/<%= arr[i].name_hex %>/<%= server_selected %>"><%= arr[i].name %></a></td>
+				<td class="text-center"><%= arr[i].contr %></td>
+				<td class="text-center"><img src="<%= base_url %>/assets/<%= tmp_dir %>/images/<%= arr[i].type %>.gif" border="0" /></td>
+				<td><%= arr[i].rank %></td>
+			</tr>  
+			<% } %>
+			</tbody>
+		</table>
+		</div>
+	</div>
+</div>		
+<% if(typeof cache_time != 'undefined'){ %>
+	<div class="row mb-4">
+		<div class="col-11"> 
+			<div class="float-right"><%= cache_time %></div>
+		</div>	
+	</div>
+<% } %>
+<% 
+}
+else{
+%>
+	<div class="alert alert-primary" role="alert"><%= App.lc.translate('No Players Found').fetch() %></div>
+<%
+}
+} 
+%>

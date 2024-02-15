@@ -1,0 +1,51 @@
+<% 
+if(typeof guilds != 'undefined'){ 
+if(guilds != false){
+%>
+<ul class="top-table">
+	<li class="table-th">
+		<div class="td-1">
+			#
+		</div>
+		<div class="td-2">
+			<%= App.lc.translate('Name').fetch() %>
+		</div>
+		<div class="td-3">
+			<%= App.lc.translate('Logo').fetch() %>
+		</div>
+		<div class="td-4">
+			<%= App.lc.translate('Score').fetch() %>
+		</div>
+		<div class="td-5">
+			<%= App.lc.translate('Total Lvl').fetch() %>
+		</div>
+	</li>
+	<% for(var i=0; i<guilds.length; i++) { %>
+	<li>
+		<div class="td-1">
+			<%= i+1 %>
+		</div>
+		<div class="td-2" style="display:flex;">
+			<a href="<%= base_url %>guild/<%= guilds[i].name_hex %>/<%= server_selected %>"><%= guilds[i].name %></a>
+		</div>
+		<div class="td-3">
+			<span style="width:40px; height:40px;transform: rotate(45deg);overflow: hidden;"><img style="transform: rotate(-45deg) scale(1.42);width: 20px;height:20px" src="<%= base_url %>rankings/get_mark/<%= guilds[i].mark %>/20"></span>
+		</div>
+		<div class="td-4">
+			<%= guilds[i].score %>
+		</div>
+		<div class="td-5">
+			<%= parseInt(guilds[i].clevel) + parseInt(guilds[i].mlevel) %>
+		</div>
+	</li>
+	<% } %>
+</ul>
+<% 
+}
+else{
+%>
+<div class="alert alert-primary" role="alert"><%= App.lc.translate('No Guilds Found').fetch() %></div>
+<%
+}
+} 
+%>

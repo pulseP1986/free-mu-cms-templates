@@ -1,0 +1,47 @@
+<% 
+if(typeof players != 'undefined'){ 
+if(players != false){
+%>
+<ul class="top-table">
+	<li class="table-th">
+		<div class="td-1">
+			#
+		</div>
+		<div class="td-2">
+			<%= App.lc.translate('Name').fetch() %>
+		</div>
+		<div class="td-3">
+			<%= App.lc.translate('Class').fetch() %>
+		</div>
+		<div class="td-4">
+			<%= App.lc.translate('LvL').fetch() %><% if(config.player.display_master_level == 1) { %><sup><%=App.lc.translate('ML').fetch() %></sup><%}%>
+		</div>
+		<% if(config.player.display_resets == 1) { %><div class="td-5"><%= App.lc.translate('Res').fetch() %><% if(config.player.display_gresets == 1) { %><sup><%= App.lc.translate('GR').fetch() %></sup><%}%></div><%}%>
+	</li>
+	<% for(var i=0; i<players.length; i++) { %>
+	<li>
+		<div class="td-1">
+			<%= i+1 %>
+		</div>
+		<div class="td-2" style="display:flex;">
+			<% if(config.player.display_country == 1) { %><span class="f16" style="margin-right:5px;"><span class="flag <%= players[i].country %>"></span></span><% } %> <a href="<%= base_url %>character/<%= players[i].name_hex %>/<%= server_selected %>"><%= players[i].name %></a>
+		</div>
+		<div class="td-3">
+			<span style="width:40px; height:40px;transform: rotate(45deg);overflow: hidden;"><img style="transform: rotate(-45deg) scale(1.42);width: 20px;height:20px" src="<%= base_url %>assets/default_assets/images/char_icons/<%= players[i].class_small.toLowerCase() %>.jpg" title="<%= players[i].class %>"></span>
+		</div>
+		<div class="td-4">
+			<%= players[i].level %><% if(config.player.display_master_level == 1) { %><sup><%= players[i].mlevel %></sup><%}%>
+		</div>
+		<% if(config.player.display_resets == 1) { %><div class="td-5"><%= players[i].resets %><% if(config.player.display_gresets == 1) { %><sup><%= players[i].gresets %></sup><%}%></div><%}%>
+	</li>
+	<% } %>
+</ul>	
+<% 
+}
+else{
+%>
+<div class="alert alert-primary" role="alert"><%= App.lc.translate('No Players Found').fetch() %></div>
+<%
+}
+} 
+%>

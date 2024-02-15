@@ -1,0 +1,52 @@
+<% 
+if(typeof killer != 'undefined'){ 
+if(killer != false){
+%>
+<div class="row">
+	<div class="col-12"> 
+		<div class="table-responsive-sm">
+		<table class="table dmn-rankings-table table-striped">
+			<thead>
+			<tr>
+				<th class="text-center">#</th>
+				<th><%= App.lc.translate('Name').fetch() %></th>
+				<th class="text-center"><%= App.lc.translate('PK Count').fetch() %></th>
+				<th class="text-center"><%= App.lc.translate('PK Level').fetch() %></th>
+				<th class="text-center"><%= App.lc.translate('PK Time').fetch() %></th>
+				<% if(config.killer.display_master_level == 1) { %><th class="text-center"><%= App.lc.translate('MasterLevel').fetch() %></th><% } %>
+				<% if(config.killer.display_resets == 1) { %><th class="text-center"><%= App.lc.translate('Resets').fetch() %><% if(config.killer.display_gresets == 1) { %><sup style="color: red;"><%= App.lc.translate('GR').fetch() %></sup><% } %></th><% } %>
+			</tr>
+			</thead>
+			<tbody>
+			<% for(var i=0; i<killer.length; i++) { %>
+			<tr>
+				<td class="text-center"><%= i+1 %> <% if(config.killer.display_country == 1) { %><span class="f16"><span class="flag <%= killer[i].country %>"></span></span><% } %></td>
+				<td><a href="<%= base_url %>character/<%= killer[i].name_hex %>/<%= server_selected %>"><%= killer[i].name %></a></td>
+				<td class="text-center"><%= killer[i].PkCount %></td>
+				<td class="text-center"><%= killer[i].PkLevel %></td>
+				<td class="text-center"><%= killer[i].PkTime %></td>
+				<% if(config.killer.display_master_level == 1) { %><td class="text-center"><%= killer[i].mlevel %></td><% } %>
+				<% if(config.killer.display_resets == 1) { %><td class="text-center"><%= killer[i].resets %><% if(config.killer.display_gresets == 1) { %><sup style="color: red;"><%= killer[i].gresets %></sup><% } %></td><% } %>
+			</tr>  
+			<% } %>
+			</tbody>
+		</table>  
+		</div>
+	</div>
+</div>	
+<% if(typeof cache_time != 'undefined'){ %>
+	<div class="row mb-4">
+		<div class="col-11"> 
+			<div class="float-right"><%= cache_time %></div>
+		</div>	
+	</div>
+<% } %>
+<% 
+}
+else{
+%>
+	<div class="alert alert-primary" role="alert"><%= App.lc.translate('No Players Found').fetch() %></div>
+<%
+}
+} 
+%>

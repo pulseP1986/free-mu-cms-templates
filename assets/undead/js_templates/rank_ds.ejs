@@ -1,0 +1,43 @@
+<% 
+if(typeof ds != 'undefined'){ 
+if(ds != false){
+%>
+<div class="row">
+	<div class="col-12"> 
+		<div class="table-responsive-sm">
+		<table class="table dmn-rankings-table table-striped">
+			<thead>
+			<tr>
+				<th class="text-center">#</th>
+				<th><%= App.lc.translate('Name').fetch() %></th>
+				<th class="text-center"><%= App.lc.translate('Score').fetch() %></th>
+			</tr>
+			<tbody>
+			<% for(var i=0; i< ds.length; i++) { %>
+			<tr>
+				<td class="text-center"><%= i+1 %></td>
+				<td><a href="<%= base_url %>character/<%= ds[i].name_hex %>/<%= server_selected %>"><%= ds[i].name %></a></td>
+				<td class="text-center"><%= ds[i].score %></td>
+			</tr>  
+			<% } %>
+			</tbody>
+		</table>  
+		</div>
+	</div>
+</div>		
+<% if(typeof cache_time != 'undefined'){ %>
+	<div class="row mb-4">
+		<div class="col-11"> 
+			<div class="float-right"><%= cache_time %></div>
+		</div>	
+	</div>
+<% } %>
+<% 
+}
+else{
+%>
+	<div class="alert alert-primary" role="alert"><%= App.lc.translate('No Players Found').fetch() %></div>
+<%
+}
+} 
+%>

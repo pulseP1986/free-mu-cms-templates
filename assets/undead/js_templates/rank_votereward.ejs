@@ -1,0 +1,45 @@
+<% 
+if(typeof votereward != 'undefined'){ 
+if(votereward != false){
+%>
+<div class="row">
+	<div class="col-12"> 
+		<div class="table-responsive-sm">
+		<table class="table dmn-rankings-table table-striped">
+			<thead>
+			<tr>
+				<th class="text-center">#</th>
+				<th><%= App.lc.translate('Named').fetch() %></th>
+				<th class="text-center"><%= App.lc.translate('Total Votes').fetch() %></th>
+				<th><%= App.lc.translate('Last Time Voted').fetch() %></th>
+			</tr>
+			<tbody>
+			<% for(var i=0; i< votereward.length; i++) { %>
+			<tr>
+				<td class="text-center"><%= i+1 %> <% if(config.voter.display_country == 1) { %><span class="f16"><span class="flag <%= votereward[i].country %>"></span></span><% } %></td>
+				<td><a href="<%= base_url %>character/<%= votereward[i].name_hex %>/<%= server_selected %>"><%= votereward[i].name %></a></td>
+				<td class="text-center"><%= votereward[i].totalvotes %></td>
+				<td><%= votereward[i].lastvote %></td>
+			</tr>  
+			<% } %>
+			</tbody>
+		</table>
+		</div>
+	</div>
+</div>			
+<% if(typeof cache_time != 'undefined'){ %>
+	<div class="row mb-4">
+		<div class="col-11"> 
+			<div class="float-right"><%= cache_time %></div>
+		</div>	
+	</div>
+<% } %>
+<% 
+}
+else{
+%>
+	<div class="alert alert-primary" role="alert"><%= App.lc.translate('No Players Found').fetch() %></div>
+<%
+}
+} 
+%>

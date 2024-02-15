@@ -1,0 +1,114 @@
+@media (max-width: 1900px) { .header-wrapper{width: 100%;max-width: 1900px;} }
+@media (max-width: 1850px) { .header-menu li { padding: 0px 10px; } }
+@media (max-width: 1750px) { .header-menu li a i { display: none; }
+  .header-menu li a:before { margin-left: -78px; } }
+@media (max-width: 1440px) { .radial-stat { top: 90px; }
+  .header-wrapper_left, .header-wrapper_right { width: auto; justify-content: flex-start; }
+  .header-wrapper-menu { justify-content: flex-start; }
+  .slider-nav .slick-next { right: 0px; }
+  .slider-nav .slick-prev { left: 0px; }
+  .slider-for-slide { padding-left: 100px; padding-right: 100px; }
+  .hero-img { left: 400px; } }
+@media (max-width: 1220px) { 
+  .header-menu li { padding: 0px 0px; }
+  .header-menu li a { font-size: 14px; }
+  .containerWeb { padding: 0px 15px;width: 100%;max-width: 1200px; }
+  .container-days {width: 100%;max-width: 1220px;}
+  .daysBlocks, .sales { justify-content: center; }
+  .daysBlocks > a, .sales > a { margin: 10px; }
+  .topThree { justify-content: center; }
+  .topThree-block { margin: 5px; } }
+@media (max-width: 993px) { .header { position: fixed; top: 0px; left: 0px; right: 0px; width: 100%; height: 50px; z-index: 99; }
+  .langBlock-active { height: 50px; }
+  .langBlock-active:before { top: 23px; }
+  .radial-stat { top: 0px; }
+  .burger-menu { display: block; position: absolute; left: 10px; top: 3px; transition: 0.3s; z-index: 101; }
+  .burger-menu span { width: 40px; height: 4px; display: block; background: #fff; margin: 8px 0px; transition: 0.3s; position: relative; }
+  .burger-menu.active { left: 260px; top: 12px; }
+  .burger-menu.active span:nth-child(1) { transform: rotate(45deg); top: 6px; }
+  .burger-menu.active span:nth-child(2) { display: none; }
+  .burger-menu.active span:nth-child(3) { transform: rotate(-45deg); bottom: 6px; }
+  .header-wrapper-menu_h { display: block; position: fixed; left: -320px; top: 0px; width: 320px; background: #000; height: 100%; padding-top: 70px; transition: 0.3s; z-index: 10; }
+  .header-wrapper-menu_h.active { left: 0px; }
+  .header-wrapper-menu { display: block; height: 100%; overflow-y: auto; }
+  .header-menu { display: block; width: 100%; padding-left: 30px; }
+  .header-menu li a { text-align: center; font-size: 18px; }
+  .header-menu li a i { display: block; }
+  .topBlocksNews .col { width: 100%; }
+  .home-block-title { max-width: 100%; }
+  .top-table li { padding: 0px 10px; }
+  .homeTop { margin-bottom: 50px; }
+  .hero-title { margin-left: 0px; }
+  .slider-for-slide { padding-left: 10px; padding-right: 10px; }
+  .footerMenu-block { width: 33.3%; margin-bottom: 30px; }
+  .footerBottom-block { width: 100%; padding: 15px 0px; }
+  .panel-active { height: 50px; }
+  .panel-active:before { top: 22px; }
+  .panel-active img { height: 40px; width: 40px; }
+  .pageContent { padding: 20px 15px; }
+  .account-setting { padding: 0px; }
+  .clouds { display: none; }
+  .pNewsBlock-img, .pNewsBlock-block { width: 100%; }
+  .dTop-left, .dTop-right { width: 100%; height: auto; padding: 20px 15px; } }
+@media (max-width: 770px) { .radial-stat { top: 50px; z-index: 2; }
+  .col { width: 100%; }
+  .mid-block_button { top: 10px; right: 10px; }
+  .hero-title_text span { font-size: 30px; }
+  .hero-text { max-width: 100%; }
+  .team-online-title { margin-bottom: 20px; }
+  .team-online-barBlock { max-width: 130px; }
+  .team-online-block { margin-right: 0px; }
+  .days { margin-bottom: 100px; }
+  .account-setting_block { width: 100%; }
+  .account-setting_block:nth-child(1) { background-color: #26272b; }
+  .account-setting_block:nth-child(2) { background-color: inherit; }
+  .account-setting_block:nth-child(3) { background-color: #26272b; }
+  .account-setting_block:nth-child(5) { background-color: #26272b; }
+  .account-setting_block:nth-child(6) { background-color: inherit; }
+  .account-setting_block:nth-child(7) { background-color: #26272b; }
+  .account-setting_block:nth-child(9) { background-color: #26272b; }
+  .account-setting_block:nth-child(10) { background-color: inherit; } }
+@media (max-width: 680px) { .reg-logo { margin-bottom: 100px; }
+  .regBLock-dark, .regBLock-grey { width: 100%; height: auto; }
+  .regBLock-dark { padding: 15px; }
+  .regBLock-grey { padding-bottom: 15px; }
+  .regBLock { flex-direction: column-reverse; }
+  .regBLock-dark_button { position: relative; bottom: auto; left: auto; text-align: center; margin-left: 0px; }
+  .regBLock-dark-center { width: 100%; }
+  .regBLock-dark_title { margin-bottom: 20px; }
+  .form-links { margin-bottom: 20px; }
+  .main-reg .footerMenu { position: relative; left: auto; bottom: auto; padding-top: 100px; }
+  .main-reg { height: auto; }
+  .regBLock.active .regBLock-dark { width: 100%; left: auto; }
+  .regBLock.active .regBLock-grey { width: 100%; left: auto; right: auto; } }
+@media (max-width: 640px) { .socBlock { width: 100%; justify-content: center; }
+  .team-online-icon { display: none; }
+  .team-online-block { width: 50%; max-width: 100%; padding: 10px; }
+  .team-online-barBlock { max-width: 100%; }
+  .hero-img { left: 200px; }
+  .footerMenu-block { width: 50%; text-align: center; }
+  .footerMenu { padding-left: 0px; } }
+@media (max-width: 575px) { .dTop-cat_block { width: calc(50% - 6px); }
+  .d-title { width: 80%; } }
+@media (max-width: 525px) { .last-news-list li { padding: 15px 25px 15px 25px; }
+  .last-news-list li:before { display: none; }
+  .hero-icon-class { display: none; }
+  .hero-title { margin-bottom: 80px; }
+  .hero-img { left: 100px; top: 30px; }
+  .hero-img-1 { top: 30px; width: 150%; }
+  .account-setting_block { padding: 0px 5px; }
+  .account-icon { display: none; } }
+@media (max-width: 460px) { .topThree-block { flex-wrap: wrap; }
+  .topThree-block { height: auto; }
+  .topThree-block_text { width: 100%; }
+  .topThree-block_class { width: calc(100% - 78px); }
+  .topThree-block_text-b { left: auto; right: 20px; } }
+@media (max-width: 440px) { .charOptions-block, .charOptions-col { width: 100%; }
+  .pNewsBlock-block { padding: 35px 0px 40px 15px; }
+  .pNewsBlock-block_info { padding: 12px 0px 12px 15px; } }
+@media (max-width: 425px) { .mid-block { padding-left: 40px; }
+  .mid-block:before { display: none; }
+  .events-table li { padding: 9px 10px; }
+  .salesBlock p { font-size: 40px; } }
+
+/*# sourceMappingURL=style.css.map */

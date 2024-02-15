@@ -1,0 +1,76 @@
+<% 
+if(typeof guilds != 'undefined'){ 
+if(guilds != false){
+%>
+<div class="row">
+	<div class="col-12"> 
+		<div class="table-responsive-sm">
+		<table class="table dmn-rankings-table table-striped">
+			<thead>
+			<tr>
+				<th class="text-center">#</th>
+				<th><%= App.lc.translate('Name').fetch() %></th>
+				<th><%= App.lc.translate('Master').fetch() %></th>
+				<th class="text-center"><%= App.lc.translate('Score').fetch() %></th>
+				<% if(config.guild.order_by == 1){ %><td class="text-center"><%= App.lc.translate('Total ML').fetch() %></td><% } %>
+				<% if(config.guild.order_by == 2){ %><td class="text-center"><%= App.lc.translate('Total Res').fetch() %></td><% } %>
+				<% if(config.guild.order_by == 3){ %><td class="text-center"><%= App.lc.translate('Total Gres').fetch() %></td><% } %>
+				<% if(config.guild.order_by == 4){ %><td class="text-center"><%= App.lc.translate('Total Level').fetch() %></td><% } %>
+				<th class="text-center"><%= App.lc.translate('Member Count').fetch() %></th>
+				<th class="text-center" class="end"><%= App.lc.translate('Guild Mark').fetch() %></th>
+			</tr>
+			</thead>
+			<tbody>
+			<% for(var i=0; i<guilds.length; i++) { %>
+			<tr>
+				<td class="text-center"><%= i+1 %></td>
+				<td><a href="<%= base_url %>guild/<%= guilds[i].name_hex %>/<%= server_selected %>"><%= guilds[i].name %></a></td>
+				<td><a href="<%= base_url %>character/<%= guilds[i].master_hex %>/<%= server_selected %>"><%= guilds[i].master %></a></td>
+				<td class="text-center"><%= guilds[i].score %></td>
+				<% if(config.guild.order_by == 1){ %><td class="text-center"><%= guilds[i].mlevel %></td><% } %>
+				<% if(config.guild.order_by == 2){ %><td class="text-center"><%= guilds[i].resets %></td><% } %>
+				<% if(config.guild.order_by == 3){ %><td class="text-center"><%= guilds[i].gresets %></td><% } %>
+				<% if(config.guild.order_by == 4){ %><td class="text-center"><%= guilds[i].clevel %></td><% } %>
+				<td class="text-center"><%= guilds[i].members %></td>
+				<td class="text-center" class="end"><img src="<%= base_url %>rankings/get_mark/<%= guilds[i].mark %>" style="border: 0;" /></td>
+			</tr>  
+			<% } %>
+			</tbody>
+		</table> 
+		</div>	
+	</div>
+</div>
+<% if(typeof cache_time != 'undefined'){ %>
+	<div class="row mb-4">
+		<div class="col-11 "> 
+			<div class="float-right"><%= cache_time %></div>
+		</div>	
+	</div>
+<% } %>
+<% 
+}
+else{
+%>
+	<div class="alert alert-primary" role="alert"><%= App.lc.translate('No Guilds Found').fetch() %></div>
+<%
+}
+} 
+%>
+<div class="row mb-5">
+	<div class="col-12"> 
+	<div class="mx-auto" style="width: 450px;">
+		<form method="post" class="form" action="<%= base_url %>rankings/search/<%= server_selected %>">
+		  <div class="form-row align-items-center">
+			<div class="col-auto">
+			  <label class="sr-only" for="inlineFormInput">Name</label>
+			  <input type="text" class="form-control" id="name" name="name" placeholder="<%= App.lc.translate('Guild Name').fetch() %>">
+			</div>
+
+			<div class="col-auto">
+			  <button type="submit" class="btn btn-primary"><%= App.lc.translate('Submit').fetch() %></button>
+			</div>
+		  </div>
+		</form>
+	</div>
+	</div>
+</div>

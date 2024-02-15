@@ -1,0 +1,43 @@
+@media (max-width: 1200px) { .menu li a { padding: 0px 20px; font-size: 16px; }  .sparks { display: none; } .smog { display: none; }}
+@media (max-width: 993px) { .container_web { -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; }
+  aside { width: 50%; -webkit-box-ordinal-group: 3; -ms-flex-order: 2; order: 2; }
+  .content {
+   width: 100%; 
+  -webkit-box-ordinal-group: 2;
+   -ms-flex-order: 1; 
+   order: 1; }
+  .news { text-align: center; }
+  .right-sidebar{margin-left: 2px; margin-top: 6px; }
+  .left-sidebar{margin-top: 6px; }
+  .menu li a { padding: 0px 10px; font-size: 14px; }
+  .content:after { display: none; }   .footer-end{ text-align: center; justify-content: center; } }
+@media (max-width: 769px) { .topMenu { display: block; position: fixed; width: 320px; height: 100%; top: 0; left: -320px; background: rgba(0, 0, 0, 0.9); z-index: 3; padding-top: 100px; -webkit-transition: 0.3s; transition: 0.3s; }
+  .topMenu.active { left: 0px; }
+  .menu { height: calc(100% - 50px); overflow-y: auto; display: block; }
+  .menu li { display: block; }
+  .menu li a { color: #fff; height: auto; line-height: 1; padding: 20px 25px; font-size: 18px; }
+  .topPanel { height: 60px; }
+  .btn { display: block; position: relative; z-index: 14; }
+  .btn.active { left: 250px; }
+  .btn.active span:nth-child(1) { -webkit-transform: rotate(45deg); transform: rotate(45deg); bottom: -9px; }
+  .btn.active span:nth-child(2) { display: none; }
+  .btn.active span:nth-child(3) { -webkit-transform: rotate(-45deg); transform: rotate(-45deg); }
+  .header_web { height: 400px; }
+  .content{background-size: 100%; }
+  .modal_div:before{display: none}
+  .logo {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    padding-top: 230px;}
+body {
+ width: 100%;
+  background: url(../images/fon-top-mobile.jpg) center top no-repeat, url(../images/fon-bottom.jpg) center bottom no-repeat; 
+  background-color: #080b0e; 
+  font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif; 
+  font-size: 15px; 
+  color: #ffffff; 
+  min-height: 100vh; 
+}}
+@media (max-width: 575px) { .content { padding: 10px; }
+  .swiper-container { margin-left: -10px; margin-top: -10px; width: calc(100% + 20px); height: 300px; } }

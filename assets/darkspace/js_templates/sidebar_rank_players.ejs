@@ -1,0 +1,41 @@
+<% 
+if(typeof players != 'undefined'){ 
+if(players != false){
+%>
+<div class="tableBlock-thead">
+	<div class="tableBlock-tr">
+		<div class="tableBlock-td td-25">
+			#
+		</div>
+		<div class="tableBlock-td td-50">
+			Name
+		</div>
+		<div class="tableBlock-td td-25">
+			Lvl <% if(config.player.display_master_level == 1) { %><span class="plvl">ML</span><%}%>
+		</div>
+	</div>
+</div>
+<% for(var i=0; i<players.length; i++) { %>
+<div class="tableBlock-body">
+	<div class="tableBlock-tr text-td">
+		<div class="tableBlock-td td-25">
+			<%= i+1 %>. <% if(config.player.display_country == 1) { %><span class="f16"><span class="flag <%= players[i].country %>"></span></span><% } %>
+		</div>
+		<div class="tableBlock-td td-50">
+			<a href="<%= base_url %>character/<%= bin2hex(players[i].name) %>/<%= server_selected %>" title="<%= players[i].name %>"><%= players[i].name %></a>
+		</div>
+		<div class="tableBlock-td td-25">
+			<%= players[i].level %> <% if(config.player.display_master_level == 1) { %><span class="plvl"><%= players[i].mlevel %></span><%}%>
+		</div>
+	</div>
+</div>	
+<% } %>
+<% 
+}
+else{
+%>
+<div class="i_note"><%= App.lc.translate('No Players Found').fetch() %></div>
+<%
+}
+} 
+%>

@@ -1,0 +1,97 @@
+<% 
+if(typeof killer != 'undefined'){ 
+if(killer != false){
+if(killer_info != false){
+%>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.css">
+<style>
+	table.dataTable tbody tr{
+		background-color: rgba(255, 255, 255, 0) !important;
+	}
+	table.dataTable tbody tr:hover{
+		background-color: rgba(255, 255, 255, 0.4) !important;
+	}
+</style>
+<table class="ranking-table" cellpadding="0" cellspacing="0">
+	<thead>
+	<tr class="main-tr" style="padding-left: 15px;">
+		<th><%= App.lc.translate('PK Statistics').fetch() %></th>
+		
+	</tr>
+	</thead>
+</table>	
+<table class="ranking-table" id="kill_stats" cellpadding="0" cellspacing="0">
+	<thead>
+	<tr class="main-tr">
+		<th><%= App.lc.translate('Killer').fetch() %></th>
+		<th><%= App.lc.translate('Victim').fetch() %></th>
+		<th><%= App.lc.translate('Kill Date').fetch() %></th>
+	</tr>
+	</thead>
+</table>
+<script>
+$(document).ready(function(){
+	$('#kill_stats').DataTable({
+		"searching": false, 
+		"info": false, 
+		"lengthChange": false, 
+		"order": [[ 2, "desc" ]], 
+		"language": {
+			"emptyTable": "<%= App.lc.translate('No data available in table').fetch() %>",	
+			"paginate": {
+			  "previous": "<%= App.lc.translate('Previous').fetch() %>",
+			  "next": "<%= App.lc.translate('Next').fetch() %>"
+			}
+		},
+		"stateSave": true,
+		"processing": true,
+		"serverSide": true,
+		"ajax": {
+			url: '<%= base_url %>rankings/load-kill-stats/<%= server_selected %>',
+			type: "post"
+		}
+	});
+});
+</script>
+<div style="margin-top:10px;"></div>
+<% 
+}
+%>
+<table class="ranking-table">
+	<tdead>
+	<tr class="main-tr">
+		<th style="text-align:center;">#</th>
+		<th style="text-align:center;"><%= App.lc.translate('Name').fetch() %></th>
+		<th style="text-align:center;"><%= App.lc.translate('PK Count').fetch() %></th>
+		<th style="text-align:center;"><%= App.lc.translate('PK Level').fetch() %></th>
+		<th style="text-align:center;"><%= App.lc.translate('PK Time').fetch() %></th>
+		<% if(config.killer.display_master_level == 1) { %><th style="text-align:center;"><%= App.lc.translate('MasterLevel').fetch() %></th><% } %>
+		<% if(config.killer.display_resets == 1) { %><th style="text-align:center;"><%= App.lc.translate('Resets').fetch() %><% if(config.killer.display_gresets == 1) { %><sup style="color: red;"><%= App.lc.translate('GR').fetch() %></sup><% } %></th><% } %>
+	</tr>
+	</tdead>
+	<tbody>
+	<% for(var i=0; i<killer.length; i++) { %>
+	<tr>
+		<td style="text-align:center;"><%= i+1 %> <% if(config.killer.display_country == 1) { %><span class="f16"><span class="flag <%= killer[i].country %>"></span></span><% } %></td>
+		<td><a href="<%= base_url %>character/<%= killer[i].name_hex %>/<%= server_selected %>"><%= killer[i].name %></a></td>
+		<td><%= killer[i].PkCount %></td>
+		<td style="text-align:center;"><%= killer[i].PkLevel %></td>
+		<td style="text-align:center;"><%= killer[i].PkTime %></td>
+		<% if(config.killer.display_master_level == 1) { %><td style="text-align:center;"><%= killer[i].mlevel %></td><% } %>
+		<% if(config.killer.display_resets == 1) { %><td style="text-align:center;"><%= killer[i].resets %><% if(config.killer.display_gresets == 1) { %><sup style="color: red;"><%= killer[i].gresets %></sup><% } %></td><% } %>
+	</tr>  
+	<% } %>
+	</tbody>
+</table>  
+<% if(typeof cache_time != 'undefined'){ %>
+<div style="text-align: right;padding-top: 15px;"><%= cache_time %></div>
+<% } %>
+<% 
+}
+else{
+%>
+<div style="padding: 0 30px 0px 50px;"><div class="i_note"><%= App.lc.translate('No Players Found').fetch() %></div></div>
+<%
+}
+} 
+%>

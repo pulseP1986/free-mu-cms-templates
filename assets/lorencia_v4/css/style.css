@@ -1,0 +1,451 @@
+body{
+	background: #ffffff;
+}
+.nav1{
+	background: #000000;
+	width: 100%;
+	height: 100%;
+	padding-top: 9px;
+	padding-right: 10px;
+	padding-bottom: 13px;
+	padding-left: 18px;
+	margin-bottom: 0px;
+}
+.user-button{
+	background: rgba(0,123,255,0) !important;
+	border-style: none !important;
+	padding-top: 0px !important;
+	font-family: 'Source Sans Pro', sans-seri !important;
+	color: rgb(160,160,160) !important;
+}
+.user-dropdown{
+	background: rgba(0,0,0,0.86) !important;
+	margin-left: -160px !important;
+	margin-top: 23px !important;
+	padding-top: 16px !important;
+	padding-bottom: 16px !important;
+	width: 300px !important;
+	margin-right: 11px !important;
+	margin-bottom: 11px !important;
+	padding-right: 16px !important;
+	padding-left: 22px !important;
+}
+.user-dropdown-item{
+	background: rgba(255,255,255,0) !important;
+	width: 260px !important;
+	padding-bottom: 0px !important;
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	padding-top: 0px !important;
+}
+.user-dropdown-item:nth-child(1){
+	margin-bottom: 11px;
+}
+.user-dropdown-item:nth-child(2){
+border-style: solid;
+border-color: rgb(171,42,42) ;
+}
+@media (min-width: 300px) {
+  #maindiv {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #maindiv {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+}
+
+@media (min-width: 1365px) {
+  #maindiv {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
+
+@media (min-width: 1600px) {
+  #maindiv {
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+}
+
+@media (min-width: 1920px) {
+  #maindiv {
+    margin-left: 250px;
+    margin-right: 250px;
+  }
+}
+
+#text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+@media (min-width: 300px) {
+  #text2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+}
+
+@media (min-width: 768px) {
+  #text2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+}
+
+@media (min-width: 300px) {
+  #logo {
+    width: 270px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #logo {
+    width: 412px;
+  }
+}
+
+.navbar.navbar-dark.navbar-expand-xl.sticky-top {
+  z-index: 10;
+}
+
+@media (min-width: 300px) {
+  #text-middle {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  #text-middle {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1200px) {
+  #text-middle {
+    width: 50%;
+  }
+}
+
+@media (min-width: 300px) {
+  .carousel-indicators {
+    margin-bottom: -41px;
+    margin-left: 2px;
+  }
+}
+
+@media (min-width: 768px) {
+  .carousel-indicators {
+    margin-bottom: 1px;
+    margin-left: 52.2%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .carousel-indicators {
+    margin-left: 50%;
+  }
+}
+
+@media (min-width: 300px) {
+  #slide-text {
+    margin-left: 1px;
+    margin-top: 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  #slide-text {
+    margin-left: 45px;
+    margin-top: 0px;
+  }
+}
+
+.carousel-inner {
+  z-index: 1;
+}
+
+#bg2 {
+}
+
+@media (min-width: 300px) {
+  .bg2 {
+    height: 100%;
+    width: 100%;
+    background: url("../images/mobilebg.png") top / contain no-repeat;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg2 {
+    background: url("../images/bg2.png") top / auto no-repeat;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 57px;
+  }
+}
+
+@media (min-width: 300px) {
+  #about-game {
+    padding-top: 300px;
+  }
+}
+
+@media (min-width: 768px) {
+  #about-game {
+    padding-top: 169px;
+  }
+}
+
+@media (min-width: 300px) {
+  #slide {
+    margin-bottom: -40px;
+  }
+}
+
+@media (min-width: 768px) {
+  #slide {
+    margin-top: 90px;
+    margin-bottom: 1px;
+  }
+}
+
+@media (min-width: 300px) {
+  #previous {
+    margin-right: 0px;
+    margin-left: 0%;
+    margin-top: 50%;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (min-width: 768px) {
+  #previous {
+    margin-right: 0px;
+    margin-left: 0%;
+    margin-top: 160px;
+    width: 60px;
+    height: 50px;
+  }
+}
+
+@media (min-width: 300px) {
+  #next {
+    width: 40px;
+    height: 40px;
+    margin-top: 50%;
+    margin-right: 0%;
+  }
+}
+
+@media (min-width: 768px) {
+  #next {
+    width: 60px;
+    height: 50px;
+    margin-top: 160px;
+    margin-right: 51.8%;
+  }
+}
+
+@media (min-width: 300px) {
+  #storebuttons {
+    margin-top: 32px;
+  }
+}
+
+@media (min-width: 768px) {
+  #storebuttons {
+    margin-top: 92px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #storebuttons {
+    margin-top: 159px;
+  }
+}
+
+#playbutton:hover {
+  background-color: rgb(88,65,48);
+}
+
+#playbutton2 {
+  background-color: #000000;
+}
+
+#playbutton2:hover {
+  background: rgb(88,65,48);
+}
+
+#playlistbutton {
+  background-color: white;
+  border-style: solid;
+  border-color: rgba(0,0,0,0.2);
+}
+
+#playlistbutton:hover {
+  box-shadow: 0px 5px 10px 4px rgba(0,0,0,0.1);
+}
+
+#newsnotice {
+  background: rgba(0,0,0,0.85);
+  border: 1px solid rgb(0,0,0) ;
+}
+
+#newsnotice:hover {
+  border: 1px solid rgb(181,130,69) ;
+}
+
+#text:hover {
+  filter: brightness(140%);
+}
+
+#updatenotice {
+  background: rgba(0,0,0,0.85);
+  border: 1px solid rgb(0,0,0) ;
+}
+
+#updatenotice:hover {
+  border-style: solid;
+  border-color: rgb(67,115,181);
+}
+
+#annonotice {
+  background: rgba(0,0,0,0.85);
+  border: 1px solid rgb(0,0,0) ;
+}
+
+#annonotice:hover {
+  border: 1px solid rgb(181,65,171) ;
+}
+
+#normalbutton:hover {
+  filter: brightness(200%);
+}
+
+#normalbutton2:hover {
+  filter: brightness(130%);
+}
+
+@media (min-width: 300px) {
+  .bg1 {
+    background: url("../images/mobilebg1.png") top / contain no-repeat;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg1 {
+    background: url("../images/bg1.png") top / auto no-repeat;
+  }
+}
+
+@media (min-width: 300px) {
+  #headerdiv {
+    padding-top: 350px;
+  }
+}
+
+@media (min-width: 768px) {
+  #headerdiv {
+    padding-top: 485px;
+  }
+}
+
+@media (min-width: 576px) {
+  #loginregister-box {
+  }
+}
+
+@media (min-width: 768px) {
+  #loginregister-box {
+    padding-right: 80px;
+    padding-left: 80px;
+  }
+}
+
+@media (min-width: 992px) {
+  #loginregister-box {
+    padding-right: 180px;
+    padding-left: 180px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #loginregister-box {
+    padding-right: 300px;
+    padding-left: 300px;
+  }
+}
+
+@media (min-width: 1400px) {
+  #loginregister-box {
+    padding-right: 400px;
+    padding-left: 400px;
+  }
+}
+
+@media (min-width: 1600px) {
+  #loginregister-box {
+    padding-right: 350px;
+    padding-left: 350px;
+  }
+}
+
+@media (min-width: 1920px) {
+  #loginregister-box {
+    padding-right: 400px;
+    padding-left: 400px;
+  }
+}
+
+button, input {
+  overflow: visible;
+  outline: none;
+}
+
+#inputlogin {
+  background: rgba(255,255,255,0);
+  padding-top: 20px;
+  padding-left: 2px;
+  padding-bottom: 20px;
+  width: 100%;
+  border-style: none;
+  border-bottom: 1px solid rgba(133,106,74,0.5) ;
+  color: rgb(222,222,222);
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px;
+}
+
+@media (min-width: 300px) {
+  #pagediv {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  #pagediv {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+}
+

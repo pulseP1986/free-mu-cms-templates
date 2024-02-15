@@ -1,0 +1,36 @@
+<% 
+if(typeof guilds != 'undefined'){ 
+if(guilds != false){
+%>
+<div class="table">
+	<div class="tHead">
+		<div class="tRow">
+			<span class="t-number">#</span>
+			<span class="t-player"><%= App.lc.translate('Name').fetch() %></span>
+			<span class="t-guild"><%= App.lc.translate('Logo').fetch() %></span>
+			<span class="t-lvl"><%= App.lc.translate('Score').fetch() %></span>
+		</div>
+	</div>
+	<div class="tBody">
+		<% for(var i=0; i<guilds.length; i++) { %>
+		<div class="tRow">
+			<span class="t-number"><%= i+1 %>.</span>
+			<span class="t-player"><a href="<%= base_url %>guild/<%= guilds[i].name_hex %>/<%= server_selected %>"><%= guilds[i].name %></a></span>
+			<span class="t-guild"><img src="<%= base_url %>rankings/get_mark/<%= guilds[i].mark %>/16" style="border: 0;" /></span>
+			<span class="t-lvl"><%= guilds[i].score %></span>
+		</div>
+		<% } %>
+	</div>
+	</div><!--table-->
+	<div class="allButton">
+		<a href="<%= base_url %>rankings" class="all"><%= App.lc.translate('All').fetch() %> <%= App.lc.translate('Rankings').fetch() %></a>
+	</div>
+<% 
+}
+else{
+%>
+<div class="alert alert-primary" role="alert"><%= App.lc.translate('No Players Found').fetch() %></div>
+<%
+}
+} 
+%>

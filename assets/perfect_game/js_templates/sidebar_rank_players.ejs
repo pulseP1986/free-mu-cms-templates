@@ -1,0 +1,24 @@
+<% 
+if(typeof players != 'undefined'){ 
+if(players != false){
+%>
+<div class="table">
+	<% for(var i=0; i<players.length; i++) { %>
+
+	<div class="table-row <% if((i+1) < 4){ %>table-row-top<% } else { %>table-row<% } %>">
+		<div class="table-td number"><span<% if((i+1) < 4){ %> class="n-top-<%= i+1 %>"<% } %>><%= i+1 %></span></div>
+		<div class="table-td name"><% if(config.player.display_country == 1) { %><span class="f16"><span class="flag <%= players[i].country %>"></span></span><% } %> <a href="<%= base_url %>character/<%= players[i].name_hex %>/<%= server_selected %>"><%= players[i].name %></a></div>
+		<div class="table-td points"><%= players[i].level %><% if(config.player.display_master_level == 1) { %><sup style="color: red;"><%= players[i].mlevel %></sup><%}%></div>
+		<% if(config.player.display_resets == 1) { %><div class="table-td points"><%= players[i].resets %><% if(config.player.display_gresets == 1) { %><sup style="color: red;"><%= players[i].gresets %></sup><%}%></div><%}%>
+	</div>
+	<% } %>
+</div>
+<% 
+}
+else{
+%>
+<div class="alert alert-info"><%= App.lc.translate('No Players Found').fetch() %></div>
+<%
+}
+} 
+%>

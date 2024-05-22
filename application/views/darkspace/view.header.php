@@ -28,13 +28,13 @@
 			</div>
 			<div class="topMenu">
 				<ul class="menu">
-					<li class="active"><a href="<?php echo $this->config->base_url; ?>home"><?php echo _('News'); ?></a></li>
-					<li><a href="<?php echo $this->config->base_url; ?>registration"><?php echo _('Registration'); ?></a></li>
-					<li><a href="<?php echo $this->config->base_url; ?>downloads"><?php echo _('Files'); ?></a></li>
-					<li><a href="<?php echo $this->config->base_url; ?>rankings"><?php echo _('Rankings'); ?></a></li>
-					<li><a href="<?php echo $this->config->base_url; ?>guides"><?php echo _('Guides'); ?></a></li>
-					<li><a href="<?php echo $this->config->config_entry('main|forum_url'); ?>"><?php echo _('Forum'); ?></a></li>
-					<li><a href="<?php echo $this->config->base_url; ?>about"><?php echo _('About'); ?></a></li>
+					<li class="active"><a href="<?php echo $this->config->base_url; ?>home"><?php echo __('News'); ?></a></li>
+					<li><a href="<?php echo $this->config->base_url; ?>registration"><?php echo __('Registration'); ?></a></li>
+					<li><a href="<?php echo $this->config->base_url; ?>downloads"><?php echo __('Files'); ?></a></li>
+					<li><a href="<?php echo $this->config->base_url; ?>rankings"><?php echo __('Rankings'); ?></a></li>
+					<li><a href="<?php echo $this->config->base_url; ?>guides"><?php echo __('Guides'); ?></a></li>
+					<li><a href="<?php echo $this->config->config_entry('main|forum_url'); ?>"><?php echo __('Forum'); ?></a></li>
+					<li><a href="<?php echo $this->config->base_url; ?>about"><?php echo __('About'); ?></a></li>
 				</ul><!--menu-->
 			</div>
 		</div>
@@ -46,19 +46,19 @@
 						<div id="timer_div_title"><?php echo $this->config->config_entry("main|grand_open_timer_text"); ?></div>
 						<div id="timer_div_time">
 							<div class="timmer_inner_block">
-								<div class="title"><?php echo _('Days'); ?></div>
+								<div class="title"><?php echo __('Days'); ?></div>
 								<div id="days" class="count"></div>
 							</div>
 							<div class="timmer_inner_block">
-								<div class="title"><?php echo _('Hours'); ?></div>
+								<div class="title"><?php echo __('Hours'); ?></div>
 								<div id="hours" class="count"></div>
 							</div>
 							<div class="timmer_inner_block">
-								<div class="title"><?php echo _('Minutes'); ?></div>
+								<div class="title"><?php echo __('Minutes'); ?></div>
 								<div id="minutes" class="count"></div>
 							</div>
 							<div class="timmer_inner_block">
-								<div class="title"><?php echo _('Seconds'); ?></div>
+								<div class="title"><?php echo __('Seconds'); ?></div>
 								<div id="seconds" class="count"></div>
 							</div>
 						</div>

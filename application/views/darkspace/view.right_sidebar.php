@@ -11,7 +11,7 @@
 		?>
 		<div class="blockTitle">
 			<p>ACCOUNT</p>
-			<span><?php echo _('Welcome'); ?>, <?php echo $this->session->userdata(array('user' => 'username')); ?></span>
+			<span><?php echo __('Welcome'); ?>, <?php echo $this->session->userdata(array('user' => 'username')); ?></span>
 		</div>
 				<form class="lk-form">
 						<div class="lk-coins">
@@ -34,21 +34,21 @@
 				
 				<div class="lk-coins">
 								<span class="coins" id="my_wcoins"><?php echo number_format($wcoin); ?></span>
-								<span class="username"><?php echo _('WCoins'); ?>:</span>
+								<span class="username"><?php echo __('WCoins'); ?>:</span>
 						</div>
 
 				<?php endif;?>
 				
 						<ul>
-								<li><a href="<?php echo $this->config->base_url; ?>donate"><?php echo _('Buy Credits'); ?></a></li>
-					<li><a href="<?php echo $this->config->base_url; ?>shop"><?php echo _('Shop'); ?></a></li>
-					<li><a href="<?php echo $this->config->base_url; ?>shop/cart"><?php echo _('My Cart'); ?></a></li>
-					<li><a href="<?php echo $this->config->base_url; ?>market"><?php echo _('Market'); ?></a></li>
-					<li><a href="<?php echo $this->config->base_url; ?>warehouse"><?php echo _('Warehouse'); ?></a></li>
-					<li><a href="<?php echo $this->config->base_url; ?>account-panel"><?php echo _('Account Panel'); ?></a></li>
-					<li><a href="<?php echo $this->config->base_url; ?>account-logs"><?php echo _('Account Logs'); ?></a></li>
-					<li><a href="<?php echo $this->config->base_url; ?>settings"><?php echo _('Settings'); ?></a></li>
-					<li><a style="text-decoration:underline" href="<?php echo $this->config->base_url;?>logout"><?php echo _('Logout');?></a></li>
+								<li><a href="<?php echo $this->config->base_url; ?>donate"><?php echo __('Buy Credits'); ?></a></li>
+					<li><a href="<?php echo $this->config->base_url; ?>shop"><?php echo __('Shop'); ?></a></li>
+					<li><a href="<?php echo $this->config->base_url; ?>shop/cart"><?php echo __('My Cart'); ?></a></li>
+					<li><a href="<?php echo $this->config->base_url; ?>market"><?php echo __('Market'); ?></a></li>
+					<li><a href="<?php echo $this->config->base_url; ?>warehouse"><?php echo __('Warehouse'); ?></a></li>
+					<li><a href="<?php echo $this->config->base_url; ?>account-panel"><?php echo __('Account Panel'); ?></a></li>
+					<li><a href="<?php echo $this->config->base_url; ?>account-logs"><?php echo __('Account Logs'); ?></a></li>
+					<li><a href="<?php echo $this->config->base_url; ?>settings"><?php echo __('Settings'); ?></a></li>
+					<li><a style="text-decoration:underline" href="<?php echo $this->config->base_url;?>logout"><?php echo __('Logout');?></a></li>
 						</ul>
 				</form>
 		<?php else: ?>

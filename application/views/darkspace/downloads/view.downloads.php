@@ -6,7 +6,7 @@ $this->load->view($this->config->config_entry('main|template') . DS . 'view.head
 <div class="news-content">
 <?php
 if (empty($downloads)):
-		echo '<div style="padding: 0 30px 0px 50px;"><div class="i_note">' . _('Currently no download links.') . '</div></div>';
+		echo '<div style="padding: 0 30px 0px 50px;"><div class="i_note">' . __('Currently no download links.') . '</div></div>';
 else:
 ?>
 <div class="downloadBlock">

@@ -23,7 +23,7 @@ $this->load->view($this->config->config_entry('main|template') . DS . 'view.head
                                 style="width:600px;"><?php echo str_replace('&gt;', '>', str_replace('&lt;', '<', str_replace('Â', '&nbsp;', $news['news_content_full']))); ?></div>
                             <div class="meta-bg">
                                 <div class="meta">
-                                    <p class="tags"><?php echo _('Posted'); ?> <?php echo date(DATE_FORMAT, $news['time']); ?> <?php echo _('By'); ?> <?php echo $news['author']; ?></p>
+                                    <p class="tags"><?php echo __('Posted'); ?> <?php echo date(DATE_FORMAT, $news['time']); ?> <?php echo __('By'); ?> <?php echo $news['author']; ?></p>
                                 </div>
                             </div>
                         </div>

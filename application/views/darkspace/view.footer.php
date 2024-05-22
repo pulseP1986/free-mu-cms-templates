@@ -3,10 +3,10 @@
 <footer class="footer">
 		<div class="toTop"></div>
 				<ul class="f-menu flex-c-c">
-						<li><a href="<?php echo $this->config->base_url; ?>home" title="<?php echo _('News'); ?>"><?php echo _('News'); ?></a></li>
-						<li><a href="<?php echo $this->config->base_url; ?>registration" title="<?php echo _('Registration'); ?>"><?php echo _('Registration'); ?></a></li>
-						<li><a href="<?php echo $this->config->base_url; ?>downloads" title="<?php echo _('Files'); ?>"><?php echo _('Downloads'); ?></a></li>
-						<li><a href="<?php echo $this->config->base_url; ?>rankings" title="<?php echo _('Rankings'); ?>"><?php echo _('Rankings'); ?></a></li>
+						<li><a href="<?php echo $this->config->base_url; ?>home" title="<?php echo __('News'); ?>"><?php echo __('News'); ?></a></li>
+						<li><a href="<?php echo $this->config->base_url; ?>registration" title="<?php echo __('Registration'); ?>"><?php echo __('Registration'); ?></a></li>
+						<li><a href="<?php echo $this->config->base_url; ?>downloads" title="<?php echo __('Files'); ?>"><?php echo __('Downloads'); ?></a></li>
+						<li><a href="<?php echo $this->config->base_url; ?>rankings" title="<?php echo __('Rankings'); ?>"><?php echo __('Rankings'); ?></a></li>
 				</ul>
 				<div class="footer-end flex-s-c">
 				<div class="footer-block-coperite">
@@ -23,13 +23,13 @@
 </div>
 <div id="select_server">
 	<div class="modal-header">
-		<h2><?php echo _('Select Server'); ?></h2>
+		<h2><?php echo __('Select Server'); ?></h2>
 		<a class="close" href="javascript:;"></a>
 	</div>
 	<div style="margin: 20px;" class="form">
 		<?php
 			if (!$servers = $this->website->server_select_box('id="switch_server"')) {
-				echo '<b style="color: red;">' . _('Currently this is only one server.') . '</b>';
+				echo '<b style="color: red;">' . __('Currently this is only one server.') . '</b>';
 			} else {
 				echo $servers;
 			}
@@ -38,7 +38,7 @@
 </div>
 <div id="overlay"></div>
 <a data-modal-div="select_server" href="#" id="server_click" style="display: hidden;"></a>
-<div id="loading"><img src="<?php echo $this->config->base_url; ?>assets/<?php echo $this->config->config_entry('main|template'); ?>/images/ajax-loader.gif" alt=""/> <?php echo _('Loading...'); ?></div>
+<div id="loading"><img src="<?php echo $this->config->base_url; ?>assets/<?php echo $this->config->config_entry('main|template'); ?>/images/ajax-loader.gif" alt=""/> <?php echo __('Loading...'); ?></div>
 <script src="<?php echo $this->config->base_url; ?>assets/<?php echo $this->config->config_entry('main|template'); ?>/js/jed.js"></script>
 <script src="<?php echo $this->config->base_url; ?>assets/<?php echo $this->config->config_entry('main|template'); ?>/js/jquery.leanModal.min.js?v=1"></script>
 <script src="<?php echo $this->config->base_url; ?>assets/<?php echo $this->config->config_entry('main|template'); ?>/js/jquery.tooltip.js"></script>

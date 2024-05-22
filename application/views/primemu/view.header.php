@@ -64,19 +64,19 @@
         <div id="timer_div_title"><?php echo $this->config->config_entry("main|grand_open_timer_text"); ?></div>
         <div id="timer_div_time">
             <div class="timmer_inner_block">
-                <div class="title"><?php echo _('Days'); ?></div>
+                <div class="title"><?php echo __('Days'); ?></div>
                 <div id="days" class="count"></div>
             </div>
             <div class="timmer_inner_block">
-                <div class="title"><?php echo _('Hours'); ?></div>
+                <div class="title"><?php echo __('Hours'); ?></div>
                 <div id="hours" class="count"></div>
             </div>
             <div class="timmer_inner_block">
-                <div class="title"><?php echo _('Minutes'); ?></div>
+                <div class="title"><?php echo __('Minutes'); ?></div>
                 <div id="minutes" class="count"></div>
             </div>
             <div class="timmer_inner_block">
-                <div class="title"><?php echo _('Seconds'); ?></div>
+                <div class="title"><?php echo __('Seconds'); ?></div>
                 <div id="seconds" class="count"></div>
             </div>
         </div>

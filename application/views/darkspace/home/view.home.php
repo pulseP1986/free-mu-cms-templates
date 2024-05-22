@@ -1,10 +1,10 @@
 <?php
 $this->load->view($this->config->config_entry('main|template') . DS . 'view.header');
 ?>
-<span class="h1"><?php echo _('News'); ?></span>
+<span class="h1"><?php echo __('News'); ?></span>
 	<?php
 	if (empty($news)):
-		echo '<div style="padding: 0 30px 0px 50px;"><div class="i_note">' . _('No News Articles') . '</div></div>';
+		echo '<div style="padding: 0 30px 0px 50px;"><div class="i_note">' . __('No News Articles') . '</div></div>';
 	else:
 		foreach ($news as $key => $article):
 	?>

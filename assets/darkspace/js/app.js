@@ -94,7 +94,11 @@ var App = {
 		});
 		$('a[id^="reset-char-"]').on('click', function (e) {
 			e.preventDefault();
-			App.resetCharacter($(this).attr("id").split("-")[2]);
+			App.resetCharacter($(this).attr("id").split("-")[2], 0);
+		});
+		$('a[id^="resetvip-char-"]').on('click', function (e) {
+			e.preventDefault();
+			App.resetCharacter($(this).attr("id").split("-")[2], 1);
 		});
 		$('a[id^="greset-char-"]').on('click', function (e) {
 			e.preventDefault();
@@ -234,6 +238,9 @@ var App = {
 		$('#hide_chars').on('click', function () {
 			App.hideChars();
 		});
+		$('#hide_chars_pk').on('click', function () {
+			App.hideCharsPK();
+		});
 		$('#exchange_wcoins').on('click', function (e) {
 			e.preventDefault();
 			App.exchangeWCoins($('#credits').val());
@@ -359,7 +366,12 @@ var App = {
 				}
 				else {
 					if ($("#switch_server").length == 0) {
-						App.loginUser();
+						if ($("#server").length > 0) {
+							App.loginUser($("#server option:selected").val());
+						}
+						else{
+							App.loginUser();
+						}
 					}
 					else {
 						App.login = 1;
@@ -383,7 +395,9 @@ var App = {
 		else {
 			dataToSend = '&' + $.param({'username': App.user_info[0], 'password': App.user_info[1]});
 		}
-		
+		if(typeof($("#captcha_input") != "undefined")){
+			dataToSend += '&' + $.param({'captcha': $("#captcha_input").val()});
+		}
 		if(App.isSending) 
 			return false;
 			
@@ -400,23 +414,35 @@ var App = {
 			},
 			success: function (data) {
 				if (data.error) {
-					var stycky = 0;
-					if(typeof data.stycky != 'undefined'){
-						stycky = 1
+					if(data.error == 'error_captcha'){
+						$('#captcha_image').removeAttr("src").attr('src', DmNConfig.base_url + 'ajax/captcha?v'+(new Date()).getTime()+'');
+						App.notice(App.lc.translate('Error').fetch(), 'error', 'Wrong Captcha', 0);
+						
 					}
-					App.notice(App.lc.translate('Error').fetch(), 'error', data.error, stycky);
+					else{
+						var stycky = 0;
+						if(typeof data.stycky != 'undefined'){
+							stycky = 1
+						}
+						App.notice(App.lc.translate('Error').fetch(), 'error', data.error, stycky);
+					}
 				}
-				if (data.success) {
-					App.notice(App.lc.translate('Success').fetch(), 'success', data.success, 1);
-					setTimeout(function () {
-						if(window.location.href.indexOf("return") > -1){
-							var $return = location.search.split('return=')[1];
-							location.href = DmNConfig.base_url + $return;
-						}
-						else{
-							location.href = DmNConfig.base_url + 'account-panel';
-						}
-					}, 2000);
+				if(data.tfa){
+					location.href = DmNConfig.base_url + 'account-panel/two-factor-auth';
+				}
+				else{
+					if (data.success) {
+						App.notice(App.lc.translate('Success').fetch(), 'success', data.success, 1);
+						setTimeout(function () {
+							if(window.location.href.indexOf("return") > -1){
+								var $return = location.search.split('return=')[1];
+								location.href = DmNConfig.base_url + $return;
+							}
+							else{
+								location.href = DmNConfig.base_url + 'account-panel';
+							}
+						}, 2000);
+					}
 				}
 			}
 		});
@@ -710,17 +736,18 @@ var App = {
 			}
 		});
 	},
-	populateRanking: function (rank, server, c_class, monster) {
-		if (typeof(monster) != "undefined" && c_class != 'all') {
-			dataToSend = '&' + $.param({'type': rank, 'server': server, 'npc': c_class});
+	populateRanking: function (rank, server, c_class, page) {
+		if (typeof(c_class) != "undefined" && c_class != 'all') {
+			dataToSend = '&' + $.param({'type': rank, 'server': server, 'class': c_class});
 		}
-		else{
-			if (typeof(c_class) != "undefined" && c_class != 'all') {
-				dataToSend = '&' + $.param({'type': rank, 'server': server, 'class': c_class});
-			}
-			else {
-				dataToSend = '&' + $.param({'type': rank, 'server': server});
-			}
+		else {
+			dataToSend = '&' + $.param({'type': rank, 'server': server});
+		}
+		
+		var pg = '';
+		
+		if (typeof(page) != "undefined") {
+			pg = '/' + page;
 		}
 		
 		if(App.isSending) 
@@ -728,7 +755,7 @@ var App = {
 		
 		$.ajax({
 			type: 'POST',
-			url: DmNConfig.base_url + 'rankings/load_ranking_data',
+			url: DmNConfig.base_url + 'rankings/load_ranking_data' + pg,
 			data: dataToSend,
 			beforeSend: function () {
 				App.showLoader();
@@ -851,12 +878,12 @@ var App = {
 
 		}
 	},
-	resetCharacter: function (character) {
+	resetCharacter: function (character, vip) {
 		if(App.isSending) 
 			return false;
 		$.ajax({
 			url: DmNConfig.base_url + 'ajax/reset_character',
-			data: {character: character},
+			data: {character: character, vip: vip},
 			beforeSend: function () {
 				App.showLoader();
 				App.isSending = true;
@@ -872,7 +899,7 @@ var App = {
 				else {
 					App.notice(App.lc.translate('Success').fetch(), 'success', data.success);
 					$('#resets-' + character).fadeOut('slow').html(parseInt($('#resets-' + character).text()) + 1).fadeIn('slow');
-					$('#lvl-' + character).fadeOut('slow').html('<span style="color: red;">1</span>').fadeIn('slow');
+					$('#lvl-' + character).fadeOut('slow').html('<span style="color: red;">'+data.newlvl+'</span>').fadeIn('slow');
 				}
 			}
 		});
@@ -1304,10 +1331,12 @@ var App = {
 							App.notice(App.lc.translate('Error').fetch(), 'error', data.error);
 						}
 						$('#class_select').html('<option value="" disabled="disabled" selected="selected">'+App.lc.translate('--SELECT--').fetch()+'</option>');
+						$('#class_change_price').html('Select Character');
 					}
 					else {
 						if (typeof data.data != 'Undefined') {
 							$('#class_select').html(data.data);
+							$('#class_change_price').html(data.price+' '+data.price_type);
 						}
 					}
 				}
@@ -1494,7 +1523,7 @@ var App = {
 					else {
 						if (data != false) {
 							var e = new EJS.Helpers();
-							$('#sPlayerLink').attr('href', DmNConfig.base_url + 'info/character/' + e.bin2hex(data[0].name) + '/' + server);
+							$('#sPlayerLink').attr('href', DmNConfig.base_url + 'info/character/' + data[0].name_hex + '/' + server);
 							$('#sPlayer').html(data[0].name);
 						}
 						else{
@@ -1526,7 +1555,7 @@ var App = {
 					else {
 						if (data != false) {
 							var e = new EJS.Helpers();
-							$('#sGuildLink').attr('href', DmNConfig.base_url + 'info/guild/' + e.bin2hex(data[0].name) + '/' + server);
+							$('#sGuildLink').attr('href', DmNConfig.base_url + 'info/guild/' + data[0].name_hex + '/' + server);
 							$('#sGuild').html(data[0].name);
 						}
 						else{
@@ -1542,6 +1571,29 @@ var App = {
 			return false;
 		$.ajax({
 			url: DmNConfig.base_url + 'ajax/hide_chars',
+			beforeSend: function () {
+				App.showLoader();
+				App.isSending = true;
+			},
+			complete: function () {
+				App.hideLoader();
+				App.setIsSending();
+			},
+			success: function (data) {
+				if (data.error) {
+					App.notice(App.lc.translate('Error').fetch(), 'error', data.error);
+				}
+				else {
+					App.notice(App.lc.translate('Success').fetch(), 'success', data.success);
+				}
+			}
+		});
+	},
+	hideCharsPK: function () {
+		if(App.isSending) 
+			return false;
+		$.ajax({
+			url: DmNConfig.base_url + 'ajax/hide_chars_pk',
 			beforeSend: function () {
 				App.showLoader();
 				App.isSending = true;
@@ -2040,23 +2092,12 @@ var App = {
 	events: function () {
 		i = 0;
 		for (i in App.events_time) {
-			newDiv = $("<div class=\"tableBlock-tr text-td\">");
-			newDiv.append($("<div class=\"tableBlock-td td-50\">").text(App.events_time[i].name));
-			newDiv.append($("<div class=\"tableBlock-td td-50\">").attr({id: 'event' + App.events_time[i].id}).text(App.formatedTime(App.events_time[i].left)));
+			newDiv = $("<div/>");
+			newDiv.append($("<span />").text(App.events_time[i].name));
+			newDiv.append($("<small />").attr({id: 'event' + App.events_time[i].id}).text(App.formatedTime(App.events_time[i].left)));
 			$("#events").append(newDiv);
 			i++;
 		}
-		
-		/*
-		<div class="tableBlock-tr text-td">
-									<div class="tableBlock-td td-50">
-										Golden Invasionow
-									</div>
-									<div class="tableBlock-td td-50">
-										55m 28s
-									</div>
-								</div>
-								*/
 		setInterval(function () {
 			App.updateEventTimes()
 		}, 1000);
@@ -2213,7 +2254,7 @@ var serverTime = {
         f.push(c.digit(e.getSeconds()));
         f.push(" ");
         f.push(" ");
-        f.push(e.toLocaleString(App.readCookie('dmn_language').replace("_", "-"), { month: "short" }));
+        f.push(e.toLocaleString(App.readCookie('dmn_language'), { month: "short" }));
         f.push(" ");
         f.push(e.getDate());
         return f.join("")

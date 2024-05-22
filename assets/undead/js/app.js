@@ -429,7 +429,7 @@ var App = {
 		else {
 			dataToSend = '&' + $.param({'username': App.user_info[0], 'password': App.user_info[1]});
 		}
-		console.log(App.loginType);
+		
 		if(App.loginType == 1){
 			if(typeof($("#captcha_input").val()) != "undefined"){
 				dataToSend += '&' + $.param({'captcha': $("#captcha_input").val()});
@@ -469,17 +469,22 @@ var App = {
 						App.notice(App.lc.translate('Error').fetch(), 'error', data.error, stycky);
 					}
 				}
-				if (data.success) {
-					App.notice(App.lc.translate('Success').fetch(), 'success', data.success, 1);
-					setTimeout(function () {
-						if(window.location.href.indexOf("return") > -1){
-							var $return = location.search.split('return=')[1];
-							location.href = DmNConfig.base_url + $return;
-						}
-						else{
-							location.href = DmNConfig.base_url + 'account-panel';
-						}
-					}, 2000);
+				if(data.tfa){
+					location.href = DmNConfig.base_url + 'account-panel/two-factor-auth';
+				}
+				else{
+					if (data.success) {
+						App.notice(App.lc.translate('Success').fetch(), 'success', data.success, 1);
+						setTimeout(function () {
+							if(window.location.href.indexOf("return") > -1){
+								var $return = location.search.split('return=')[1];
+								location.href = DmNConfig.base_url + $return;
+							}
+							else{
+								location.href = DmNConfig.base_url + 'account-panel';
+							}
+						}, 2000);
+					}
 				}
 			}
 		});

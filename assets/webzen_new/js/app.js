@@ -412,7 +412,7 @@ var App = {
 		else {
 			dataToSend = '&' + $.param({'username': App.user_info[0], 'password': App.user_info[1]});
 		}
-		//console.log(App.loginType);
+
 		if(App.loginType == 1){
 			if(typeof($("#captcha_input").val()) != "undefined"){
 				dataToSend += '&' + $.param({'captcha': $("#captcha_input").val()});

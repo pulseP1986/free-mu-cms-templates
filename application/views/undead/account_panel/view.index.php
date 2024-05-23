@@ -114,12 +114,6 @@
 								</a>
 							</div>
 							<div class="charOptions-col">
-								<a href="<?php echo $this->config->base_url; ?>hide-character-info" class="charOptions-block">
-									<p><?php echo __('Hide Info'); ?></p>
-									<span><?php echo __('Hide inventory / location from others'); ?></span>
-								</a>
-							</div>
-							<div class="charOptions-col">
 								<a href="<?php echo $this->config->base_url; ?>exchange-wcoins" class="charOptions-block">
 									<p><?php echo __('Exchange Wcoins'); ?></p>
 									<span><?php echo __('Exchange credits to Wcoins'); ?></span>

@@ -157,14 +157,6 @@ Battle Pass <br>
 </a>
 </div>
 <div class="change-button m-top-less-50">
-<a href="<?php echo $this->config->base_url; ?>hide-character-info">
-<button class="mid-button-blue">
-Hide Info <br>
-<small class="color-gray"><i>Hide inventory / location</i></small>
-</button>
-</a>
-</div>
-<div class="change-button m-top-less-50">
 <a href="<?php echo $this->config->base_url; ?>shop/change-name">
 <button class="mid-button-blue">
 Change Name <br>

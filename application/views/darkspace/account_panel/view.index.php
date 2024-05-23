@@ -168,20 +168,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    <div>
-                                        <ul>
-                                            <li>
-                                                <a href="<?php echo $this->config->base_url; ?>hide-character-info">
-                                                    <p><?php echo __('Hide Info'); ?></p>
-                                                </a>
-                                                <?php echo __('Hide inventory / location from others'); ?>
-                                                <br/>&nbsp;
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                                <td>
+                                <td colspan="2">
                                     <div>
                                         <ul>
                                             <li>

@@ -135,11 +135,6 @@
 								<td class="text-center"><a class="btn btn-primary text-uppercase" href="<?php echo $this->config->base_url; ?>account-panel/my-referral-list"><?php echo __('Use service');?></a></td>
 							</tr>	
 							<?php } ?>
-							<tr>
-								<td><?php echo __('Hide Info'); ?></td>
-								<td><?php echo __('Hide inventory / location from others'); ?></td>
-								<td class="text-center"><a class="btn btn-primary text-uppercase" href="<?php echo $this->config->base_url; ?>hide-character-info"><?php echo __('Use service');?></a></td>
-							</tr>
 							<?php if($this->config->values('wcoin_exchange_config', [$this->session->userdata(['user' => 'server']), 'display_wcoins']) == 1){ ?>
 							<tr>
 								<td><?php echo __('Exchange Wcoins'); ?></td>

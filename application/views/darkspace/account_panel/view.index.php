@@ -7,8 +7,9 @@
             <h1><?php echo __('Account Panel'); ?></h1>
         </div>
         <div id="content_center">
-            <div class="box-style4">
+            <div class="box-style4" style="margin-bottom: 20px;">
                 <h2 class="title"><?php echo __('View account and character options'); ?></h2>
+
                 <div class="entry">
                     <div id="ucp_info">
                         <div class="half">
@@ -88,7 +89,7 @@
                                                 src="<?php echo $this->config->base_url; ?>assets/<?php echo $this->config->config_entry('main|template'); ?>/images/icons/ip.png"/>
                                     </td>
                                     <td><?php echo __('Current Ip'); ?></td>
-                                    <td><?php echo $this->website->ip(); ?></td>
+                                    <td><?php echo ip(); ?></td>
                                 </tr>
                                 <?php if($this->config->values('vip_config', 'active') == 1): ?>
                                     <tr>
@@ -250,21 +251,6 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <div>
-                                        <ul>
-                                            <li>
-                                                <a href="<?php echo $this->config->base_url; ?>account-panel/exchange-online">
-                                                    <p><?php echo __('Trade Online Time'); ?></p>
-                                                </a>
-                                                <?php echo __('More online more can exchange and receive nice rewards'); ?>
-                                                <br/>&nbsp;
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
                             <?php if($this->config->values('referral_config', 'active') == 1): ?>
                                 <tr>
                                     <td colspan="2">
@@ -391,6 +377,9 @@
                                     }
                                     foreach($plugins AS $plugin):
                                         if($plugin['installed'] == 1 && $plugin['account_panel_item'] == 1):
+											if(mb_substr($plugin['module_url'], 0, 4) !== "http"){
+												$plugin['module_url'] = $this->config->base_url . $plugin['module_url'];
+											}
                                             ?>
                                             <tr>
                                                 <td colspan="2">
@@ -398,9 +387,9 @@
                                                         <ul>
                                                             <li>
                                                                 <a href="<?php echo $plugin['module_url']; ?>">
-                                                                    <p><?php echo $plugin['about']['name']; ?></p>
+                                                                    <p><?php echo __($plugin['about']['name']); ?></p>
                                                                 </a>
-                                                                <?php echo $plugin['description']; ?>
+                                                                <?php echo __($plugin['description']); ?>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -411,54 +400,6 @@
                                     endforeach;
                                 endif;
                             ?>
-                            <?php if(defined('RES_CUSTOM_BACKUP_MASTER') && RES_CUSTOM_BACKUP_MASTER == true): ?>
-                                <tr>
-                                    <td colspan="2">
-                                        <div>
-                                            <ul>
-                                                <li>
-                                                    <a href="<?php echo $this->config->base_url; ?>account-panel/recover-master">
-                                                        <p><?php echo __('Recover MasterLevel'); ?></p>
-                                                    </a>
-                                                    <?php echo __('Recover your character master level and class'); ?>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                </tr>
-                            <?php endif; ?>
-							<?php if(defined('PARTNER_SYSTEM') && PARTNER_SYSTEM == true && $this->session->userdata(['user' => 'partner']) == 1){ ?>
-							<tr>
-								<td colspan="2">
-									<div>
-										<ul>
-											<li>
-												<a href="<?php echo $this->config->base_url; ?>partner/panel">
-													<p><?php echo __('Partner'); ?></p>
-												</a>
-												<?php echo __('Partner Panel.'); ?>
-											</li>
-										</ul>
-									</div>
-								</td>
-							</tr>
-							<?php } ?>
-							<?php if(defined('PARTNER_SYSTEM') && PARTNER_SYSTEM == true ){ ?>
-							<tr>
-								<td colspan="2">
-									<div>
-										<ul>
-											<li>
-												<a href="<?php echo $this->config->base_url; ?>account-panel/coupons">
-													<p><?php echo __('Coupons'); ?></p>
-												</a>
-												<?php echo __('Redeem Coupon.'); ?>
-											</li>
-										</ul>
-									</div>
-								</td>
-							</tr>
-							<?php } ?>
                             </tbody>
                         </table>
                     </div>

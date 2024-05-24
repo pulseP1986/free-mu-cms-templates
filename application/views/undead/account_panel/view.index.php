@@ -91,25 +91,25 @@
 						<div class="charOptions-flex flex-c-c">
 							<div class="charOptions-col">
 							<a href="<?php echo $this->config->base_url; ?>account-panel/reset" class="charOptions-block">
-								<p>Reset</p>
-								<span>Reset your character level</span>
+								<p><?php echo __('Reset'); ?></p>
+								<span><?php echo __('Reset your character level'); ?></span>
 							</a>
 						</div>
 							<div class="charOptions-col">
 								<a href="<?php echo $this->config->base_url; ?>grand-reset-character" class="charOptions-block">
-									<p>Grand Reset</p>
-									<span>Grand reset your character</span>
+									<p><?php echo __('Grand Reset'); ?></p>
+									<span><?php echo __('Grand reset your character'); ?></span>
 								</a>
 							</div>
 							<div class="charOptions-col">
 								<a href="<?php echo $this->config->base_url; ?>add-stats" class="charOptions-block">
-									<p>Add Stats</p>
-									<span>Add level up points. Str.Agi.Vit etc</span>
+									<p><?php echo __('Add Stats'); ?></p>
+									<span><?php echo __('Add level up points. Str.Agi.Vit etc'); ?></span>
 								</a>
 							</div>
 							<div class="charOptions-col">
 								<a href="<?php echo $this->config->base_url; ?>reset-stats" class="charOptions-block">
-									<p>Reset Stats</p>
+									<p><?php echo __('Reset Stats'); ?></p>
 									<span><?php echo __('Reassign your stats'); ?></span>
 								</a>
 							</div>
@@ -127,8 +127,8 @@
 							</div>
 							<div class="charOptions-col">
 								<a href="<?php echo $this->config->base_url; ?>warp-char" class="charOptions-block">
-									<p>Warp Character</p>
-									<span>Move to another location.<br> use to unstuck character</span>
+									<p><?php echo __('Warp Character'); ?></p>
+									<span><?php echo __('Move to another location.<br> use to unstuck character'); ?></span>
 								</a>
 							</div>
 							<div class="charOptions-col">
@@ -147,12 +147,6 @@
 								<a href="<?php echo $this->config->base_url; ?>clear-skilltree" class="charOptions-block">
 									<p><?php echo __('Clear SkillTree'); ?></p>
 									<span><?php echo __('Reset character skilltree.'); ?></span>
-								</a>
-							</div>
-							<div class="charOptions-col">
-								<a href="<?php echo $this->config->base_url; ?>account-panel/exchange-online" class="charOptions-block">
-									<p><?php echo __('Trade Online Time'); ?></p>
-									<span><?php echo __('More online more can exchange and receive nice rewards'); ?></span>
 								</a>
 							</div>
 							<?php if($this->config->values('referral_config', 'active') == 1){ ?>

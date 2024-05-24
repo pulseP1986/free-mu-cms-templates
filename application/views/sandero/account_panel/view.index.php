@@ -147,11 +147,6 @@
 								<td><?php echo __('Transfer zen between characters and other places.'); ?></td>
 								<td class="text-center"><a class="btn btn-primary text-uppercase" href="<?php echo $this->config->base_url; ?>zen-wallet"><?php echo __('Use service');?></a></td>
 							</tr>
-							<tr>
-								<td><?php echo __('Trade Online Time'); ?></td>
-								<td><?php echo __('More online more can exchange and receive nice rewards'); ?></td>
-								<td class="text-center"><a class="btn btn-primary text-uppercase" href="<?php echo $this->config->base_url; ?>account-panel/exchange-online"><?php echo __('Use service');?></a></td>
-							</tr>
 						</table>
 					  </div>
 					  <div class="tab-pane fade p-2" id="character-services" role="tabpanel" aria-labelledby="character-services-tab">

@@ -29,7 +29,7 @@
 					</form>
 				</div>	
 			</div>
-			<?php if($this->config->config_entry('account|allow_mail_change') == 1){ ?>
+			<?php if(isset($security_config['allow_mail_change']) && $security_config['allow_mail_change'] == 1){ ?>
 			<div class="row">
 				<div class="col-12">     
 					<h2 class="title"><?php echo __('Change Email'); ?></h2>
@@ -45,7 +45,7 @@
 				</div>	
 			</div>	
 			<?php } ?>	
-			<?php if($this->config->config_entry('account|allow_recover_masterkey') == 1){ ?>
+			<?php if(isset($security_config['allow_recover_masterkey']) && $security_config['allow_recover_masterkey'] == 1){ ?>
 			<div class="row">
 				<div class="col-12">     
 					<h2 class="title"><?php echo __('Recover Master Key'); ?></h2>

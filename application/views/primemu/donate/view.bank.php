@@ -11,7 +11,7 @@
 
             <div class="entry">
                 <?php
-                    if($this->website->get_country_code($this->website->ip()) == 've'){
+                    if($this->website->get_country_code(ip()) == 've'){
                         if(isset($error)){
                             echo '<div class="e_note">' . $error . '</div>';
                         }

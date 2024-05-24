@@ -106,7 +106,7 @@
 							</tr>
 							<tr>
 								<th><?php echo __('Current Ip'); ?></th>
-								<td><?php echo $this->website->ip(); ?></td>
+								<td><?php echo ip(); ?></td>
 							</tr>
 							<?php if($this->config->values('vip_config', 'active') == 1){ ?>
 							<tr>

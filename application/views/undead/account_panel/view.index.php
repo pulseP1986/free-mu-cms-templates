@@ -69,7 +69,7 @@
 						<div class="account-setting_block">
 							<i class="account-icon account-icon-current-ip"></i>
 							<span class="account-setting_f"><?php echo __('Current IP'); ?>:</span>
-							<span class="account-setting_f"><?php echo $this->website->ip(); ?></span>
+							<span class="account-setting_f"><?php echo ip(); ?></span>
 						</div>
 						<?php if($this->config->values('vip_config', 'active') == 1){ ?>
 						<div class="account-setting_block">

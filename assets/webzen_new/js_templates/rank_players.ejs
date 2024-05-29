@@ -113,6 +113,13 @@ $(document).ready(function(){
 						</a>
 					</li>
 					<% } %>
+					<% if(mu_version >= 13){ %>	
+					<li>
+						<a href="javascript:;" id="class_rankings_ik_<%= server_selected %>">
+							<img style="border:1px solid #071e2c;  width:20px;" src="<%= base_url %>assets/default_assets/images/char_icons/ik.jpg" class="rankings-player-class-img rounded-image-corners">&nbsp;&nbsp;<%= App.lc.translate('Illusion Knight').fetch() %>
+						</a>
+					</li>
+					<% } %>
 				</ul>
 			</div>
 		</div>

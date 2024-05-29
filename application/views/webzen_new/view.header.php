@@ -261,7 +261,6 @@
 					   </div>
                      </article>
                </section>
-			   <?php } ?>
 				<section class="main__info">
                   <div class="main__info__box">
                      <div class="main_ranking">

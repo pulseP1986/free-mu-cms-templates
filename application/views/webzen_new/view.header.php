@@ -247,16 +247,17 @@
 					</ul>
 				    <?php } ?>	
                   </article>
-				  <?php if($this->config->values('event_config', ['events', 'active']) == 1){ ?>
                   <article class="main__latest-shop">
 					   <h4 class="latest-title">Event Timers</h4>
 					   <div class="ranking-list" style="padding-top: 20px;">
+							<?php if($this->config->values('event_config', ['events', 'active']) == 1){ ?>
 							<ul class="event-timers" id="events"></ul>
-								<script type="text/javascript">
-									$(document).ready(function () {
-										App.getEventTimes();
-									});
-								</script>
+							<script type="text/javascript">
+								$(document).ready(function () {
+									App.getEventTimes();
+								});
+							</script>
+							<?php } ?>
 					   </div>
                      </article>
                </section>

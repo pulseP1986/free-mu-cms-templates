@@ -28,7 +28,7 @@
                                 <tbody>
                                 <?php
                                     foreach($char_list as $char){
-                                        $char_info = $this->Mcharacter->check_char($char['name'], $this->session->userdata(['user' => 'server']));
+                                        $char_info = $this->Mcharacter->check_char($this->session->userdata(['user' => 'username']), $this->session->userdata(['user' => 'server']), $char['name']);
 										$baseStats = $this->Mcharacter->getBaseStats($this->Mcharacter->char_info['Class'], $this->session->userdata(['user' => 'server']));
                                         $new_stats = 0;
                                         if($this->Mcharacter->char_info['Strength'] > $baseStats['Strength']){

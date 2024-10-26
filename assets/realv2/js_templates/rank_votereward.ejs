@@ -1,0 +1,73 @@
+<div class="blog-meta has-border bg-major-black">
+	<h2 class="blog-title text-white font-theme h4 mt-25-sm mb-5-off">
+		<a><%= App.lc.translate('Top Voters').fetch() %></a>
+	</h2>
+</div>
+<div class="blog-content bg-major-black">
+<% 
+if(typeof votereward != 'undefined'){ 
+if(votereward != false){
+%>
+<div class="row" style="overflow: auto;">
+    <div class="col-lg-12 pb-10" style="min-width: 770px!important;">
+    <div class="ranking-4">
+    <div class="ranking">
+    <div class="row-ranking">
+    <div style="display: none;"></div>
+    <div class="cell-ranking bg-transparent text-center">
+    <table class="my-0 mx-0 mt-10-off mb-30-off fs-12 mr-20-off float-right" style="min-width: 300px; width: 300px;">
+    <tr class="bg-transparent text-white-50">
+    <td class="border-0 w-50">Total Votes</td>
+    <td class="border-0 w-50">Last Time Voted</td>
+    </tr>
+    </table>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+</div>
+<div class="row" style="overflow: auto;">
+	<% for(var i=0; i< votereward.length; i++) { %>
+	<div class="col-lg-12 pb-10" style="min-width: 770px!important;">
+		<div class="ranking-2">
+			<div class="ranking">
+				<div class="row-ranking">
+					<div class="cell-ranking fs-18 text-center" style="background: url('<%= base_url %>assets/<%= tmp_dir %>/images/class/<%= votereward[i].class_small.toUpperCase() %>.png') #0f1116 no-repeat; min-width: 56px!important; padding-top: 3px; padding-left: 5px; text-align: left!important;"><%= i+1 %>º</div>
+					<div class="cell-ranking" style="flex: 1!important; max-width: 240px!important;">
+						<a href="<%= base_url %>character/<%= votereward[i].name_hex %>/<%= server_selected %>">
+							<%= votereward[i].name %>
+						</a>
+					</div>
+					<div class="cell-ranking text-left"><%= votereward[i].class %></div>
+					<div class="cell-ranking text-center" style="max-width: 100%!important;">
+                    <table class="my-0 mx-0 mt-10-off mb-10-off fs-12 text-white-50" style="min-width: 300px; width: 300px;">
+                    <tr>
+                    <td class="w-50"><span><%= votereward[i].totalvotes %></span></td>
+                    <td class="w-50"><span><%= votereward[i].lastvote %></span></td>
+                    </tr>
+                    </table>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<% } %>
+</div>			
+<% if(typeof cache_time != 'undefined'){ %>
+	<div class="row mb-4">
+		<div class="col-11"> 
+			<div class="float-right"><%= cache_time %></div>
+		</div>	
+	</div>
+<% } %>
+<% 
+}
+else{
+%>
+	<div class="alert alert-primary" role="alert"><%= App.lc.translate('No Players Found').fetch() %></div>
+<%
+}
+} 
+%>
+</div>

@@ -1,0 +1,95 @@
+<div class="blog-meta has-border bg-major-black">
+	<h2 class="blog-title text-white font-theme h4 mt-25-sm mb-5-off">
+		<a><%= App.lc.translate('Top Gens').fetch() %></a>
+	</h2>
+</div>
+<div class="blog-content bg-major-black">
+	<span style="height:25px;background:#cdcdcd url(<%= base_url %>/assets/<%= tmp_dir %>/images/orangeslider.jpg) repeat-x;border:1px solid gray;display:block;color:black;font-size:12pt;line-height: 130%;">
+		<span style="float:left; padding-top: 2px">&nbsp;<%= gens.info.duprian %>&nbsp;</span>
+		<span style="float:left;"><img style="padding-top: 2px;" src="<%= base_url %>/assets/<%= tmp_dir %>/images/duprian.gif" border="0" /></span>
+		<span style="float:right; padding-top: 2px">&nbsp;<%= gens.info.vanert %>&nbsp;</span>
+		<span style="float:right;"><img style="padding-top: 2px;" src="<%= base_url %>/assets/<%= tmp_dir %>/images/vanert.gif" border="0" /></span>
+		<div style="background:url(<%= base_url %>/assets/<%= tmp_dir %>/images/greenslider.jpg);width:<%= gens.info.perc_d %>%;height:23px;"></div>
+	</span>
+
+	<div class="space-20">&nbsp;</div>
+
+	<%
+	if(typeof gens != 'undefined'){
+	if(gens != false){
+	%>
+		<div class="row" style="overflow: auto;">
+			<%
+			delete gens['info'];
+			var arr = $.map(gens, function(el) { return el; });
+			for(var i=0; i<arr.length; i++) {
+			%>
+				<div class="col-lg-12 pb-10" style="min-width: 770px!important;">
+					<div class="ranking-2">
+						<div class="ranking">
+							<div class="row-ranking">
+								<div class="cell-ranking fs-18 text-center" style="background: url('<%= base_url %>assets/<%= tmp_dir %>/images/class/<%= gens[i].class_small.toUpperCase() %>.png') #0f1116 no-repeat; min-width: 56px!important; padding-top: 3px; padding-left: 5px; text-align: left!important;"><%= i+1 %>º</div>
+								<div class="cell-ranking">
+									<a href="<%= base_url %>character/<%= gens[i].name_hex %>/<%= server_selected %>">
+										<%= gens[i].name %>
+									</a>
+								</div>
+								<div class="cell-ranking text-center text-left py-0 px-0">
+									<div class="float-left">
+										<img src="<%= base_url %>/assets/<%= tmp_dir %>/images/<%= gens[i].type %>.png" class="rank" />
+									</div>
+									<% if(gens[i].g_mark != '') { %>
+										<div class="float-left pl-10 pt-15">
+											<a href="<%= base_url %>guild/<%= gens[i].g_name_hex %>/<%= server_selected %>">
+												<%= gens[i].g_name %>
+											</a>
+										</div>
+									<% } %>
+								</div>
+								<div class="cell-ranking text-center">
+									<%= gens[i].rank %>
+								</div>
+								<div class="cell-ranking text-center">
+									<span><%= gens[i].contr %></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<% } %>
+		</div>
+		<%
+		if(typeof cache_time != 'undefined'){
+		%>
+			<div class="text-default float-right"><%= cache_time %></div><br/>
+	<%
+	}
+	} else{
+	%>
+		<div class="alert-danger">
+			<div class="content-danger">
+				<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+				<div><strong><%= App.lc.translate('Error').fetch() %>!</strong> <%= App.lc.translate('No Players Found').fetch() %></div>
+			</div>
+		</div>
+	<%
+	}
+	}
+	%>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

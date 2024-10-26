@@ -1,0 +1,26 @@
+<% 
+if(typeof duels != 'undefined'){ 
+if(duels != false){
+%>
+<div class="ranking-2">
+	<div class="ranking">
+	<% for(var i=0; i<duels.length; i++) { %>
+	<div class="row-ranking">
+		<div class="cell-ranking fs-18 text-center" style="background: url('<%= base_url %>assets/<%= tmp_dir %>/images/class/<%= duels[i].class_small.toUpperCase() %>.png') #0f1116; min-width: 56px!important; padding-top: 3px; padding-left: 5px; text-align: left!important;"><%= i+1 %>º</div>
+		<div class="cell-ranking"><a href="<%= base_url %>character/<%= duels[i].name_hex %>/<%= server_selected %>"><%= duels[i].name %></a></div>
+		<div class="cell-ranking text-center"><span><%= duels[i].win %></span></div>
+		<div class="cell-ranking text-center py-0 px-0"><% if(duels[i].g_name != '') { %><img src="<%= base_url %>rankings/get_mark/<%= duels[i].g_mark %>/36" class="mt-10" /><% } %> </div>
+	</div>
+	<% } %>
+	</div>
+	<table class="mt-10 mb-0 mg-auto w-75 pagination">
+		<tr>
+			<td><a class="vs-btn2 outline4 fs-12 page-left"><i class="fas fa-arrow-left text-white-50"></i></a></td>
+			<td><a class="vs-btn2 outline4 fs-12 page-center">Page 01</a></td>
+			<td><a class="vs-btn2 outline4 fs-12 page-right"><i class="fas fa-arrow-right text-white-50"></i></a></td>
+		</tr>
+	</table>
+</div>
+<script>paginateRankings('.ranking-2');</script>
+<% }} %>
+<%

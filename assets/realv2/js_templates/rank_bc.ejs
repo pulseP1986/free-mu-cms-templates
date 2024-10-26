@@ -1,0 +1,68 @@
+<div class="blog-meta has-border bg-major-black">
+	<h2 class="blog-title text-white font-theme h4 mt-25-sm mb-5-off">
+		<a><%= App.lc.translate('Top BC').fetch() %></a>
+	</h2>
+</div>
+<div class="blog-content bg-major-black">
+<% 
+if(typeof bc != 'undefined'){ 
+if(bc != false){
+%>
+<div class="row" style="overflow: auto;">
+    <div class="col-lg-12 pb-10" style="min-width: 770px!important;">
+    <div class="ranking-4">
+    <div class="ranking">
+    <div class="row-ranking">
+    <div style="display: none;"></div>
+    <div class="cell-ranking bg-transparent text-center">
+    <table class="my-0 mx-0 mt-10-off mb-30-off fs-12 mr-20-off float-right" style="min-width: 300px; width: 300px;">
+    <tr class="bg-transparent text-white-50">
+    <td class="border-0 w-100">Score</td>
+    </tr>
+    </table>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+</div>
+<div class="row" style="overflow: auto;">
+	<% for(var i=0; i< bc.length; i++) { %>
+	<div class="col-lg-12 pb-10" style="min-width: 770px!important;">
+		<div class="ranking-2">
+			<div class="ranking">
+				<div class="row-ranking">
+					<div class="cell-ranking fs-18 text-center" style="background: url('<%= base_url %>assets/<%= tmp_dir %>/images/class/<%= bc[i].class_small.toUpperCase() %>.png') #0f1116 no-repeat; min-width: 56px!important; padding-top: 3px; padding-left: 5px; text-align: left!important;"><%= i+1 %>º</div>
+					<div class="cell-ranking" style="flex: 1!important; max-width: 240px!important;">
+						<a href="<%= base_url %>character/<%= bc[i].name_hex %>/<%= server_selected %>">
+							<%= bc[i].name %>
+						</a>
+					</div>
+					<div class="cell-ranking text-left"><%= bc[i].class %></div>
+					<div class="cell-ranking text-center" style="max-width: 100%!important;">
+                    <table class="my-0 mx-0 mt-10-off mb-10-off fs-12 text-white-50" style="min-width: 300px; width: 300px;">
+                    <tr>
+                    <td class="w-100"><span><%= bc[i].score %></span></td>
+                    </tr>
+                    </table>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<% } %>
+</div>	
+<% if(typeof cache_time != 'undefined'){ %>
+	<div class="row mb-4">
+		<div class="col-11"> 
+			<div class="float-right"><%= cache_time %></div>
+		</div>	
+	</div>
+<% } %>
+<% 
+}
+else{
+%>
+	<div class="alert alert-primary" role="alert"><%= App.lc.translate('No Players Found').fetch() %></div>
+<% }} %>
+</div>

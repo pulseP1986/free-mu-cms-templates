@@ -1,0 +1,56 @@
+define('REALMU_V2_VARS',	[
+	'discord_link' => '',
+	'instagram_link' => '',
+	'facebook_link' => '',
+	'youtube_link' => '',
+	'side_promotion' => [
+		0 => [
+			'name' => 'Valentines Day',
+			'link' => 'https://realmu.net/shopping-cart',
+			'image' => 'https://images.realmu.net/uploads/20240608/16664afb3bcb69.png',
+			'end_time' => 'Jun 17, 2024 16:00:00'
+		],
+		1 => [
+			'name' => 'Valentines Day',
+			'link' => 'https://realmu.net/shopping-cart',
+			'image' => 'https://images.realmu.net/uploads/20240608/16664afb3bcb69.png',
+			'end_time' => 'Jun 18, 2024 16:00:00'
+		],
+	],
+	'main_trailer' => 'https://www.youtube-nocookie.com/embed/g_qdNRKI1Js',
+	'season' => 'Season 19',
+	'guides' => [
+		0 => [
+			'title' => 'Test Test',
+			'thumb_image' => 'https://i.ytimg.com/vi/g_qdNRKI1Js/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAjDpR4sa3tnEnrgu0B7G-EbbL-wA',
+			'video_url' => 'https://www.youtube-nocookie.com/embed/g_qdNRKI1Js',
+			'date' => 'Fev 24, 2023'
+		],
+		1 => [
+			'title' => 'Test Test 2',
+			'thumb_image' => 'https://i.ytimg.com/vi/Ohlke1FZ0qc/hqdefault.jpg?sqp=-oaymwE2CNACELwBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARh_IDkoXTAP&rs=AOn4CLB-EliIyeVlezMStKxGF0RG2Ce_iA',
+			'video_url' => 'https://www.youtube-nocookie.com/embed/g_qdNRKI1Js',
+			'date' => 'April 24, 2023'
+		],
+		2 => [
+			'title' => 'Test Test 3',
+			'thumb_image' => 'https://i.ytimg.com/vi/TLt0Fgvn4UY/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBnttan8vbwGyaF6JToIHV3ZoEUIA',
+			'video_url' => 'https://www.youtube-nocookie.com/embed/g_qdNRKI1Js',
+			'date' => 'May 24, 2023'
+		]
+	],
+	'launcher_slides' => [
+		0 => [
+			'url' => 'https://realmu.net/news/dia-dos-namorados-realmu/481',
+			'image' => 'https://images.realmu.net/uploads/20240608/16664afb9c1fdf.png'
+		],
+		1 => [
+			'url' => 'https://realmu.net/news/dia-dos-namorados-realmu/481',
+			'image' => 'https://images.realmu.net/uploads/20240608/16664afb9c1fdf.png'
+		],
+	],
+	'arca_day' => 'next Wednesday',
+	'arca_add_hours' => '+ 21 hour',
+	'ice_day' => 'next Saturday',
+	'ice_add_hours' => '+ 21 hour'
+]);

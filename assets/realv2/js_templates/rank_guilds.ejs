@@ -1,0 +1,83 @@
+<div class="blog-meta has-border bg-major-black">
+	<h2 class="blog-title text-white font-theme h4 mt-25-sm mb-5-off">
+		<a><%= App.lc.translate('Top Guilds').fetch() %></a>
+	</h2>
+</div>
+<div class="blog-content bg-major-black">
+
+	<%
+	if(typeof guilds != 'undefined'){
+	if(guilds != false){
+	%>
+
+	<div class="row" style="overflow: auto;">
+
+		<div class="col-lg-12 pb-10" style="min-width: 770px!important;">
+			<div class="ranking-4">
+				<div class="ranking">
+					<div class="row-ranking">
+						<div style="display: none;"></div>
+						<div class="cell-ranking bg-transparent text-center pl-65">
+							<table class="my-0 mx-0 mt-10-off mb-25-off fs-12">
+								<tr class="bg-transparent text-white-50">
+									<td class="border-0 w-20 pb-5 text-left"> </td>
+									<td class="border-0 w-10 pb-5"><%= App.lc.translate('Master').fetch() %></td>
+									<td class="border-0 w-10 pb-5"><%= App.lc.translate('Members').fetch() %></td>
+									<th class="border-0 w-10 pb-5"><%= App.lc.translate('Score').fetch() %></th>
+									<% if(config.guild.order_by == 1){ %><td class="border-0 w-10 pb-5"><%= App.lc.translate('Total ML').fetch() %></td><% } %>
+									<% if(config.guild.order_by == 2){ %><td class="border-0 w-10 pb-5"><%= App.lc.translate('Total Res').fetch() %></td><% } %>
+									<% if(config.guild.order_by == 3){ %><td class="border-0 w-10 pb-5"><%= App.lc.translate('Total Gres').fetch() %></td><% } %>
+									<% if(config.guild.order_by == 4){ %><td class="border-0 w-10 pb-5"><%= App.lc.translate('Total Level').fetch() %></td><% } %>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<% for(var i=0; i<guilds.length; i++) { %>
+		<div class="col-lg-12 pb-10" style="min-width: 770px!important;">
+			<div class="ranking-4">
+				<div class="ranking">
+					<div class="row-ranking">
+						<div class="cell-ranking fs-18 text-center"><%= i+1 %>º</div>
+						<div class="cell-ranking text-center" style="font-style: normal!important;">
+							<table class="my-0 mx-0 mt-10-off mb-10-off fs-12 text-white-50">
+								<tr>
+									<td class="w-20 text-left"><img src="<%= base_url %>rankings/get_mark/<%= guilds[i].mark %>/30" class="dh-xs-none dh-sm-none mt-10-off mb-10-off mr-10" /> <a href="<%= base_url %>guild/<%= guilds[i].name_hex %>/<%= server_selected %>" class="fs-16"><%= guilds[i].name %></a></td>
+									<td class="w-10"><a href="<%= base_url %>character/<%= guilds[i].master_hex %>/<%= server_selected %>"><%= guilds[i].master %></a></td>
+									<td class="w-10"><%= guilds[i].members %></td>
+									<td class="w-10"><%= guilds[i].score %></td>
+									<% if(config.guild.order_by == 1){ %><td class="w-10"><%= guilds[i].mlevel %></td><% } %>
+									<% if(config.guild.order_by == 2){ %><td class="w-10"><%= guilds[i].resets %></td><% } %>
+									<% if(config.guild.order_by == 3){ %><td class="w-10"><%= guilds[i].gresets %></td><% } %>
+									<% if(config.guild.order_by == 4){ %><td class="w-10"><%= guilds[i].clevel %></td><% } %>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<% } %>
+
+	</div>
+
+	<% if(typeof cache_time != 'undefined'){ %>
+	<div class="text-default float-right"><%= cache_time %></div><br/>
+	<% } %>
+
+	<%
+	}
+	else{
+	%>
+		<div class="alert-danger">
+			<div class="content-danger">
+				<div><strong><%= App.lc.translate('Error').fetch() %>!</strong> <%= App.lc.translate('No Guilds Found').fetch() %></div>
+			</div>
+		</div>
+	<%
+	}
+	}
+	%>
+</div>

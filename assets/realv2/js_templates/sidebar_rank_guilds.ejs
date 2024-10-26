@@ -1,0 +1,36 @@
+<% 
+if(typeof guilds != 'undefined'){ 
+if(guilds != false){
+%>
+<div class="ranking-4">
+	<div class="ranking">
+	<% for(var i=0; i<guilds.length; i++) { %>
+	<div class="row-ranking">
+		<div class="cell-ranking fs-18 text-center"><%= i+1 %>º</div>
+		<div class="cell-ranking">
+			<img src="<%= base_url %>rankings/get_mark/<%= guilds[i].mark %>/36" class="mt-10-off mb-10-off mr-10" /> 
+			<a href="<%= base_url %>guild/<%= guilds[i].name_hex %>/<%= server_selected %>"><%= guilds[i].name %></a>
+		</div>
+		<div class="cell-ranking text-center">
+			<span>
+			<% if(config.guild.order_by == 0){ %><%= guilds[i].score %><% } %>
+			<% if(config.guild.order_by == 1){ %><%= guilds[i].mlevel %><% } %>
+			<% if(config.guild.order_by == 2){ %><%= guilds[i].resets %><% } %>
+			<% if(config.guild.order_by == 3){ %><%= guilds[i].gresets %><% } %>
+			<% if(config.guild.order_by == 4){ %><%= guilds[i].clevel %><% } %>
+			<% if(config.guild.order_by == 5){ %><%= guilds[i].totallvl %><% } %>
+			</span>
+		</div>
+	</div>
+	<% } %>
+	</div>
+	<table class="mt-10 mb-0 mg-auto w-75 pagination">
+		<tr>
+			<td><a class="vs-btn2 outline4 fs-12 page-left"><i class="fas fa-arrow-left text-white-50"></i></a></td>
+			<td><a class="vs-btn2 outline4 fs-12 page-center">Page 01</a></td>
+			<td><a class="vs-btn2 outline4 fs-12 page-right"><i class="fas fa-arrow-right text-white-50"></i></a></td>
+		</tr>
+	</table>
+</div>
+<script>paginateRankings('.ranking-4');</script>
+<% }} %>

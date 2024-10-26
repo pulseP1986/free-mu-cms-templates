@@ -1,0 +1,100 @@
+<script type="text/javascript">
+$(document).ready(function () {
+    $('#class').on("change", function (e) {
+        var selectedId = $(this).val();
+        var splitId = selectedId.split("_");
+        var c_class = splitId[2];
+        var server = splitId.slice(3).join('_');
+        App.populateRanking('players', server, c_class);
+    });
+});
+</script>
+<div class="blog-meta has-border bg-major-black">
+    <div class="row">
+        <div class="col-lg-8">
+            <h2 class="blog-title text-white font-theme h4 mt-10 mt-25-sm mb-10 mb-20-sm">
+                &nbsp; <a> <%= App.lc.translate('Top Players').fetch() %></a>
+            </h2>
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group mb-20-off mb-10-sm mt-10-off">
+                <select name="class" id="class" class="form-control bg-light-dark text-white has-border py-18 register">
+                    <option value=""><%= App.lc.translate('Select Class').fetch() %></option>
+                    <option value="class_rankings_all_<%= server_selected %>"><%= App.lc.translate('All').fetch() %></option>
+                    <option value="class_rankings_dw_<%= server_selected %>">Dark Wizard</option>
+                    <option value="class_rankings_dk_<%= server_selected %>">Dark Knight</option>
+                    <option value="class_rankings_fe_<%= server_selected %>">Fairy Elf</option>
+                    <option value="class_rankings_mg_<%= server_selected %>">Magic Gladiator</option>
+                    <option value="class_rankings_dl_<%= server_selected %>">Dark Lord</option>
+                    <option value="class_rankings_su_<%= server_selected %>">Summoner</option>
+                    <option value="class_rankings_rf_<%= server_selected %>">Rage Fighter</option>
+                    <option value="class_rankings_gl_<%= server_selected %>">Grow Lancer</option>
+                    <option value="class_rankings_rw_<%= server_selected %>">Rune Wizard</option>
+                    <option value="class_rankings_sl_<%= server_selected %>">Slayer</option>
+                    <option value="class_rankings_gc_<%= server_selected %>">Gun Crusher</option>
+                    <option value="class_rankings_wm_<%= server_selected %>">Light Wizard</option>
+                    <option value="class_rankings_lr_<%= server_selected %>">Lemuria Mage</option>
+                    <option value="class_rankings_ik_<%= server_selected %>">Illusion Knight</option>
+                </select> <i class="fas fa-users"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="blog-content bg-major-black">
+<%
+if(typeof players != 'undefined'){
+    if(players != false){
+    %>
+		<div class="row" style="overflow: auto;">
+			<% for(var i=0; i<players.length; i++) { %>
+			<div class="col-lg-12 pb-10" style="min-width: 770px!important;">
+				<div class="ranking-2">
+					<div class="ranking">
+						<div class="row-ranking">
+							<div class="cell-ranking fs-18 text-center" style="background: url('<%= base_url %>assets/<%= tmp_dir %>/images/class/<%= players[i].class_small.toUpperCase() %>.png?v1') #0f1116 no-repeat; min-width: 56px!important; padding-top: 3px; padding-left: 5px; text-align: left!important;"><%= i+1 %>º</div>
+							<div class="cell-ranking">
+								<% if(config.player.display_country == 1) { %><i class="f16"><i class="flag <%= players[i].country %>"></i></i><% } %>
+								<a href="<%= base_url %>character/<%= players[i].name_hex %>/<%= server_selected %>">
+									<%= players[i].name %>
+									<% if(config.player.display_status == 1) { if(players[i].status == 1){ %><img src="<%= base_url %>assets/<%= tmp_dir %>/images/online.png" title="Online" /><% }else{ %><img src="<%= base_url %>assets/<%= tmp_dir %>/images/offline.png" title="Offline" /> <% }} %>
+								</a>
+							</div>
+							<div class="cell-ranking text-center text-left py-0 px-0">
+								<% if(players[i].g_mark != '') { %>
+									<div class="float-left">
+										<img src="<%= base_url %>rankings/get_mark/<%= players[i].g_mark %>/30" class="dh-xs-none dh-sm-none rank" />
+									</div>
+									<div class="float-left pl-10 pt-15">
+										<a href="<%= base_url %>guild/<%= players[i].g_name_hex %>/<%= server_selected %>">
+											<%= players[i].g_name %>
+										</a>
+									</div>
+								<% } %>
+							</div>
+							<div class="cell-ranking text-left pl-20"><%= players[i].class %></div>
+							<div class="cell-ranking text-center"><span><%= parseInt(players[i].level) + parseInt(players[i].mlevel) %></span></div>
+							<div class="cell-ranking text-center"><% if(!players[i].hidden){ %><%= players[i].loc %><% } else { %><%= App.lc.translate('Hidden').fetch() %><% } %></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<% } %>
+		</div>
+        <%
+        if(typeof cache_time != 'undefined'){
+			%>
+			<div class="text-default float-right"><%= cache_time %></div><br/>
+			<%
+        }
+    } else{
+    %>
+	<div class="alert-danger">
+		<div class="content-danger">
+			<div><strong><%= App.lc.translate('Error').fetch() %>!</strong> <%= App.lc.translate('No Players Found').fetch() %></div>
+		</div>
+	</div>
+    <%
+    }
+}
+%>
+</div>
